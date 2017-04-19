@@ -1,0 +1,23 @@
+.msb-container h2,
+.entry-content .msb-container h2,
+.page-content .msb-container h2 {
+  font-size: 1em;
+  margin: 0;
+}
+
+:root a.minimal-share-button:link,
+:root a.minimal-share-button:hover {
+  border: none;
+  background-image: none;
+  text-decoration: none;
+  box-shadow: none;
+}
+
+.minimal-share-button svg {
+  width: 2em;
+  height: 2em;
+}
+
+.minimal-share-button path {
+  fill: currentColor;
+}
