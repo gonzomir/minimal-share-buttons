@@ -71,6 +71,10 @@ function msb_init(){
     add_filter( 'the_content', 'msb_content_filter', 20 );
   }
 
+  // Make plugin available for translation
+  // Translations can be filed in the /languages/ directory
+  load_plugin_textdomain( 'minimal-share-buttons', false, basename( dirname( __FILE__ ) ) . '/languages/' );
+
 }
 add_action( 'plugins_loaded', 'msb_init' );
 
