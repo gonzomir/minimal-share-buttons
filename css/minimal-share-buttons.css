@@ -16,8 +16,5 @@
 .minimal-share-button svg {
   width: 2em;
   height: 2em;
-}
-
-.minimal-share-button path {
   fill: currentColor;
 }
