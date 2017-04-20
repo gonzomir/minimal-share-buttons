@@ -53,8 +53,11 @@ function msb_content_filter( $content ) {
       'before_title'  => '<h2>',
       'after_title'   => '</h2>'
     );
+    $instance_args = array(
+      'title' => get_option( 'msb_content_title', __( 'Share this', 'minimal-share-buttons' ) )
+    );
     ob_start();
-    the_widget( 'minimal_share_buttons', array( 'title' => __( 'Share this', 'minimal-share-buttons' ) ), $widget_args );
+    the_widget( 'minimal_share_buttons', $instance_args, $widget_args );
     $output = ob_get_contents();
     ob_end_clean();
     $content .= $output;
@@ -65,9 +68,10 @@ function msb_content_filter( $content ) {
 }
 
 function msb_init(){
-  $options = get_option( 'msb_options' );
 
-  if ( is_array( $options ) && array_key_exists( 'msb_content_filter', $options ) && $options[ 'msb_content_filter' ] ) {
+  $filter = get_option( 'msb_content_filter', false );
+
+  if ( $filter ) {
     add_filter( 'the_content', 'msb_content_filter', 20 );
   }
 

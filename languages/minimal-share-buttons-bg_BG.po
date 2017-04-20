@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Minimal Share Buttons\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-19 15:14+0000\n"
-"PO-Revision-Date: 2017-04-19 15:18+0000\n"
+"POT-Creation-Date: 2017-04-20 08:50+0000\n"
+"PO-Revision-Date: 2017-04-20 08:52+0000\n"
 "Last-Translator: gonzo <gonzo@greatgonzo.net>\n"
 "Language-Team: Bulgarian\n"
 "Language: bg-BG\n"
@@ -13,50 +13,68 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco - https://localise.biz/"
 
-#: ../../../../../Projects/minimal-share-buttons/settings.php:17
+#: ../../../../../Projects/minimal-share-buttons/settings.php:21
+msgid "Select social networks"
+msgstr "Избор на социални мрежи"
+
+#: ../../../../../Projects/minimal-share-buttons/settings.php:54
+msgid "Title of the section under content"
+msgstr "Заглавие на секцията за споделяне"
+
+#: ../../../../../Projects/minimal-share-buttons/settings.php:135
+#: ../../../../../Projects/minimal-share-buttons/settings.php:136
+msgid "Share Options"
+msgstr "Настройки за споделяне"
+
+#: ../../../../../Projects/minimal-share-buttons/settings.php:173
+msgid "Save Settings"
+msgstr "Запис на настройките"
+
+#: ../../../../../Projects/minimal-share-buttons/settings.php:12
 msgid "Social networks"
 msgstr "Социални мрежи"
 
-#. use $args' label_for to populate the id inside the callback
-#: ../../../../../Projects/minimal-share-buttons/settings.php:26
-msgid "Facebook"
-msgstr "Фейсбук"
-
-#. use $args' label_for to populate the id inside the callback
-#: ../../../../../Projects/minimal-share-buttons/settings.php:39
-msgid "Twitter"
-msgstr "Туитър"
-
-#. use $args' label_for to populate the id inside the callback
-#: ../../../../../Projects/minimal-share-buttons/settings.php:52
-msgid "Google Plus"
-msgstr "Гугъл плюс"
-
-#. use $args' label_for to populate the id inside the callback
-#: ../../../../../Projects/minimal-share-buttons/settings.php:65
-msgid "LinkedIn"
-msgstr "ЛинкдИн"
-
-#: ../../../../../Projects/minimal-share-buttons/settings.php:78
+#: ../../../../../Projects/minimal-share-buttons/settings.php:35
 msgid "Display settings"
 msgstr "Настройки за показване"
 
 #. use $args' label_for to populate the id inside the callback
-#: ../../../../../Projects/minimal-share-buttons/settings.php:87
+#: ../../../../../Projects/minimal-share-buttons/settings.php:42
 msgid "Show buttons under content"
 msgstr "Показване на бутоните под съдържанието"
 
-#: ../../../../../Projects/minimal-share-buttons/settings.php:112
-msgid "Select the social networks you wish your content to be shared on."
-msgstr "Избор на социалните мрежи в което да се споделя вашето съдържание"
-
-#: ../../../../../Projects/minimal-share-buttons/settings.php:119
-msgid "Settings that control the appearance of the buttons."
-msgstr "Настройки за показването на бутоните"
-
+#: ../../../../../Projects/minimal-share-buttons/settings.php:60
 #: ../../../../../Projects/minimal-share-buttons/minimal-share-buttons.php:57
 msgid "Share this"
 msgstr "Споделяне"
+
+#: ../../../../../Projects/minimal-share-buttons/settings.php:79
+msgid "Select the social networks you wish your content to be shared on."
+msgstr "Избор на социалните мрежи в които да се споделя вашето съдържание."
+
+#: ../../../../../Projects/minimal-share-buttons/settings.php:86
+msgid "Settings that control the appearance of the buttons."
+msgstr "Настройки за показването на бутоните."
+
+#. use $args' label_for to populate the id inside the callback
+#: ../../../../../Projects/minimal-share-buttons/settings.php:113
+msgid "Facebook"
+msgstr "Фейсбук"
+
+#. use $args' label_for to populate the id inside the callback
+#: ../../../../../Projects/minimal-share-buttons/settings.php:114
+msgid "Twitter"
+msgstr "Туитър"
+
+#. use $args' label_for to populate the id inside the callback
+#: ../../../../../Projects/minimal-share-buttons/settings.php:115
+msgid "Google Plus"
+msgstr "Гугъл плюс"
+
+#. use $args' label_for to populate the id inside the callback
+#: ../../../../../Projects/minimal-share-buttons/settings.php:116
+msgid "LinkedIn"
+msgstr "ЛинкдИн"
 
 #: ../../../../../Projects/minimal-share-buttons/widget.php:10
 msgid "Share widget"
@@ -84,19 +102,21 @@ msgstr "Споделяне"
 
 #. Name of the plugin
 msgid "Minimal Share Buttons"
-msgstr ""
+msgstr "Минималистични бутони за споделяне"
 
 #. Description of the plugin
 msgid ""
 "Minimal share buttons that don't spy on users and don't require a ton of "
 "JavaScript"
 msgstr ""
+"Минималистични бутони за споделяне, които не шпионират потребителите и не "
+"изискват цял тон JavaScript."
 
 #. URI of the plugin
 #. Author URI of the plugin
 msgid "http://greatgonzo.net/"
-msgstr ""
+msgstr "http://greatgonzo.net/"
 
 #. Author of the plugin
 msgid "Milen Petrinski - Gonzo"
-msgstr ""
+msgstr "Милен Петрински - Гонзо"

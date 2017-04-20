@@ -1,17 +1,12 @@
 <?php
-/**
- * @internal never define functions inside callbacks.
- * these functions could be run multiple times; this would result in a fatal error.
- */
 
 /**
  * custom option and settings
  */
 function msb_settings_init() {
-  // register a new setting for "minimal-share-buttons" page
-  register_setting( 'minimal-share-buttons', 'msb_options' );
 
-  // register a new section in the "minimal-share-buttons" page
+  register_setting( 'minimal-share-buttons', 'msb_socials' );
+
   add_settings_section(
     'msb_section_networks',
     __( 'Social networks', 'minimal-share-buttons' ),
@@ -19,59 +14,21 @@ function msb_settings_init() {
     'minimal-share-buttons'
   );
 
-  // register a new field in the "msb_section_developers" section, inside the "minimal-share-buttons" page
+  $socials = get_option( 'msb_socials', array( 'facebook' => false, 'twitter' => false, 'gplus' => false, 'linkedin' => false ) );
+
   add_settings_field(
-    'msb_socials_facebook', // as of WP 4.6 this value is used only internally
-    // use $args' label_for to populate the id inside the callback
-    __( 'Facebook', 'minimal-share-buttons' ),
-    'msb_socials_field',
+    'msb_socials_facebook',
+    __( 'Select social networks', 'minimal-share-buttons' ),
+    'msb_socials_fieldset',
     'minimal-share-buttons',
     'msb_section_networks',
     [
-      'label_for' => 'msb_socials_facebook',
-      'class' => ''
+      'value' => $socials
     ]
   );
 
-  add_settings_field(
-    'msb_socials_twitter', // as of WP 4.6 this value is used only internally
-    // use $args' label_for to populate the id inside the callback
-    __( 'Twitter', 'minimal-share-buttons' ),
-    'msb_socials_field',
-    'minimal-share-buttons',
-    'msb_section_networks',
-    [
-      'label_for' => 'msb_socials_twitter',
-      'class' => ''
-    ]
-  );
-
-  add_settings_field(
-    'msb_socials_gplus', // as of WP 4.6 this value is used only internally
-    // use $args' label_for to populate the id inside the callback
-    __( 'Google Plus', 'minimal-share-buttons' ),
-    'msb_socials_field',
-    'minimal-share-buttons',
-    'msb_section_networks',
-    [
-      'label_for' => 'msb_socials_gplus',
-      'class' => ''
-    ]
-  );
-
-  add_settings_field(
-    'msb_socials_linkedin', // as of WP 4.6 this value is used only internally
-    // use $args' label_for to populate the id inside the callback
-    __( 'LinkedIn', 'minimal-share-buttons' ),
-    'msb_socials_field',
-    'minimal-share-buttons',
-    'msb_section_networks',
-    [
-      'label_for' => 'msb_socials_linkedin',
-      'class' => ''
-    ]
-  );
-
+  register_setting( 'minimal-share-buttons', 'msb_content_filter', 'boolval' );
+  register_setting( 'minimal-share-buttons', 'msb_content_title', 'sanitize_text_field' );
 
   add_settings_section(
     'msb_section_display',
@@ -80,17 +37,27 @@ function msb_settings_init() {
     'minimal-share-buttons'
   );
 
-  // register a new field in the "msb_section_developers" section, inside the "minimal-share-buttons" page
   add_settings_field(
-    'msb_content_filter', // as of WP 4.6 this value is used only internally
-    // use $args' label_for to populate the id inside the callback
+    'msb_content_filter',
     __( 'Show buttons under content', 'minimal-share-buttons' ),
-    'msb_socials_field',
+    'msb_checkbox_field',
     'minimal-share-buttons',
     'msb_section_display',
     [
       'label_for' => 'msb_content_filter',
-      'class' => ''
+      'value' => boolval( get_option( 'msb_content_filter', false ) )
+    ]
+  );
+
+  add_settings_field(
+    'msb_content_title',
+    __( 'Title of the section under content', 'minimal-share-buttons' ),
+    'msb_text_field',
+    'minimal-share-buttons',
+    'msb_section_display',
+    [
+      'label_for' => 'msb_content_title',
+      'value' => get_option( 'msb_content_title',  __( 'Share this', 'minimal-share-buttons' ) )
     ]
   );
 
@@ -120,32 +87,53 @@ function msb_section_display( $args ) {
   <?php
 }
 
-// pill field cb
 
-// field callbacks can accept an $args parameter, which is an array.
-// $args is defined at the add_settings_field() function.
-// wordpress has magic interaction with the following keys: label_for, class.
-// the "label_for" key value is used for the "for" attribute of the <label>.
-// the "class" key value is used for the "class" attribute of the <tr> containing the field.
-// you can add custom key value pairs to be used inside your callbacks.
-function msb_socials_field( $args ) {
-  // get the value of the setting we've registered with register_setting()
-  $options = get_option( 'msb_options' );
-  // output the field
+function msb_checkbox_field( $args ) {
+
   ?>
-  <input type="checkbox" id="<?php echo esc_attr( $args['label_for'] ); ?>" name="msb_options[<?php echo esc_attr( $args['label_for'] ); ?>]" value="<?php echo esc_attr( $args['label_for'] ); ?>" <?php echo isset( $options[ $args['label_for'] ] ) ? ( checked( $options[ $args['label_for'] ], $args['label_for'], false ) ) : ( '' ); ?> />
+  <input type="checkbox" id="<?php echo esc_attr( $args['label_for'] ); ?>" name="<?php echo esc_attr( $args['label_for'] ); ?>" value="true" <?php echo ( isset( $args['value'] ) && boolval( $args['value'] ) ) ? 'checked' : ''; ?> />
   <?php
+
 }
 
-/**
- * top level menu
- */
+function msb_text_field( $args ) {
+
+  $options = get_option( 'msb_options' );
+
+  ?>
+  <input type="text" id="<?php echo esc_attr( $args['label_for'] ); ?>" name="<?php echo esc_attr( $args['label_for'] ); ?>" value="<?php echo isset( $args['value'] ) ? esc_attr( $args['value'] ) : ''; ?>" />
+  <?php
+
+}
+
+function msb_socials_fieldset( $args ) {
+
+  $socials = array( 'facebook', 'twitter', 'gplus', 'linkedin' );
+  $labels = array(
+    'facebook' => __( 'Facebook', 'minimal-share-buttons' ),
+    'twitter' => __( 'Twitter', 'minimal-share-buttons' ),
+    'gplus' => __( 'Google Plus', 'minimal-share-buttons' ),
+    'linkedin' => __( 'LinkedIn', 'minimal-share-buttons' )
+    );
+  ?>
+  <fieldset>
+    <?php foreach( $socials as $social ): ?>
+    <p>
+      <input type="checkbox" id="msb_socials_<?php echo $social; ?>" name="msb_socials[<?php echo $social; ?>]" value="true" <?php echo ( isset( $args['value'][$social] ) && $args['value'][$social] ) ? 'checked' :  '' ; ?> />
+      <label for="msb_socials_<?php echo $social; ?>"><?php echo esc_html( $labels[$social] ); ?></label>
+    </p>
+  <?php endforeach; ?>
+  </fieldset>
+  <?php
+
+}
+
+
 function msb_options_page() {
-  // add top level menu page
   add_submenu_page(
     'options-general.php',
-    'Share Options',
-    'Share Options',
+    __( 'Share Options', 'minimal-share-buttons' ),
+    __( 'Share Options', 'minimal-share-buttons' ),
     'manage_options',
     'minimal-share-buttons',
     'msb_options_page_html'
@@ -158,26 +146,19 @@ function msb_options_page() {
 add_action( 'admin_menu', 'msb_options_page' );
 
 /**
- * top level menu:
- * callback functions
+ * Render settings page
  */
 function msb_options_page_html() {
+
   // check user capabilities
   if ( ! current_user_can( 'manage_options' ) ) {
     return;
   }
 
-  // add error/update messages
-
-  // check if the user have submitted the settings
-  // wordpress will add the "settings-updated" $_GET parameter to the url
-  if ( isset( $_GET['settings-updated'] ) ) {
-    // add settings saved message with the class of "updated"
-    //add_settings_error( 'msb_messages', 'msb_message', __( 'Settings Saved', 'minimal-share-buttons' ), 'updated' );
-  }
-
   // show error/update messages
+  // Looks like WordPress sets the messages automatically
   settings_errors( 'msb_messages' );
+
   ?>
   <div class="wrap">
     <h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
@@ -189,9 +170,10 @@ function msb_options_page_html() {
       // (sections are registered for "minimal-share-buttons", each field is registered to a specific section)
       do_settings_sections( 'minimal-share-buttons' );
       // output save settings button
-      submit_button( 'Save Settings' );
+      submit_button( __( 'Save Settings', 'minimal-share-buttons' ) );
       ?>
     </form>
   </div>
   <?php
+
 }

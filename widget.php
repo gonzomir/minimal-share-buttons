@@ -29,20 +29,20 @@ class minimal_share_buttons extends WP_Widget {
     echo $before_widget;
     if ( $title ) echo $before_title . $title . $after_title;
 
-    $options = get_option( 'msb_options' );
+    $options = get_option( 'msb_socials', array( 'facebook' => false, 'twitter' => false, 'gplus' => false, 'linkedin' => false ) );
 
     ?>
     <p>
-      <?php if ( array_key_exists( 'msb_socials_facebook', $options ) && $options[ 'msb_socials_facebook' ] ) : ?>
+      <?php if ( array_key_exists( 'facebook', $options ) && $options[ 'facebook' ] ) : ?>
         <a href="http://facebook.com/sharer.php?u=<?php echo esc_attr(  get_permalink() ); ?>&amp;t=<?php echo esc_attr( the_title_attribute( 'echo=0' ) ); ?>" target="_blank" class="minimal-share-button" aria-label="<?php esc_html_e( 'Share on Facebook', 'minimal-share-buttons' ); ?>"><?php msb_icon('facebook-square', true); ?></a>
       <?php endif; ?>
-      <?php if ( array_key_exists( 'msb_socials_twitter', $options ) && $options[ 'msb_socials_twitter' ] ) : ?>
+      <?php if ( array_key_exists( 'twitter', $options ) && $options[ 'twitter' ] ) : ?>
         <a href="https://twitter.com/share?text=<?php echo esc_attr( the_title_attribute( 'echo=0' ) ); ?>" target="_blank" class="minimal-share-button" aria-label="<?php esc_html_e( 'Share on Twitter', 'minimal-share-buttons' ); ?>"><?php msb_icon('twitter-square', true); ?></a>
       <?php endif; ?>
-      <?php if ( array_key_exists( 'msb_socials_linkedin', $options ) && $options[ 'msb_socials_linkedin' ] ) : ?>
+      <?php if ( array_key_exists( 'linkedin', $options ) && $options[ 'linkedin' ] ) : ?>
         <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo esc_attr(  get_permalink() ); ?>&title=<?php echo esc_attr( the_title_attribute( 'echo=0' ) ); ?>" target="_blank" class="minimal-share-button" aria-label="<?php esc_html_e( 'Share on LinkedIn', 'minimal-share-buttons' ); ?>"><?php msb_icon('linkedin-square', true); ?></a>
       <?php endif; ?>
-      <?php if ( array_key_exists( 'msb_socials_gplus', $options ) && $options[ 'msb_socials_gplus' ] ) : ?>
+      <?php if ( array_key_exists( 'gplus', $options ) && $options[ 'gplus' ] ) : ?>
         <a href="https://plus.google.com/share?url=<?php echo esc_attr(  get_permalink() ); ?>&amp;title=<?php echo esc_attr( the_title_attribute( 'echo=0' ) ); ?>" target="_blank" class="minimal-share-button" aria-label="<?php esc_html_e( 'Share on Google Plus', 'minimal-share-buttons' ); ?>"><?php msb_icon('google-plus-square', true); ?></a>
       <?php endif; ?>
     </p>
