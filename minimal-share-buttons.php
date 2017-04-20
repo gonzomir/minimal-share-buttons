@@ -39,6 +39,13 @@ function msb_styles() {
 add_action( 'wp_enqueue_scripts', 'msb_styles' );
 
 
+function msb_add_settings_link( $links ) {
+    $settings_link = '<a href="options-general.php?page=minimal-share-buttons">' . __( 'Settings' ) . '</a>';
+    array_unshift( $links, $settings_link );
+    return $links;
+}
+add_filter( "plugin_action_links_" . plugin_basename( __FILE__ ), 'msb_add_settings_link' );
+
 /**
  * Show share widget after post content.
  *
