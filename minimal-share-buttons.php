@@ -89,6 +89,16 @@ function msb_init(){
 }
 add_action( 'plugins_loaded', 'msb_init' );
 
+
+function msb_uninstall(){
+
+  delete_option( 'msb_socials' );
+  delete_option( 'msb_content_filter' );
+  delete_option( 'msb_content_title' );
+
+}
+register_uninstall_hook( __FILE__, 'msb_uninstall' );
+
 // SVG icon helper
 function msb_icon( $icon, $echo = true ) {
   $html = '<svg xmlns="http://www.w3.org/2000/svg" class="icon"><use xlink:href="'.PLUGIN_URL.'/images/icons.svg#icon-'.$icon.'"></use></svg>';
