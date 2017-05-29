@@ -79,7 +79,7 @@ function msb_init(){
   $filter = get_option( 'msb_content_filter', false );
 
   if ( $filter ) {
-    add_filter( 'the_content', 'msb_content_filter', 20 );
+    add_filter( 'the_content', 'msb_content_filter', 999 );
   }
 
   // Make plugin available for translation
