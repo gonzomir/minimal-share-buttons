@@ -7,10 +7,17 @@
 
 :root a.minimal-share-button:link,
 :root a.minimal-share-button:hover {
+  display: inline-block;
   border: none;
   background-image: none;
   text-decoration: none;
   box-shadow: none;
+  line-height: 1;
+}
+
+:root a.minimal-share-button:after,
+:root a.minimal-share-button .icon-webfont {
+  display: none;
 }
 
 .minimal-share-button svg {
