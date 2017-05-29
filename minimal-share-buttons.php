@@ -1,11 +1,15 @@
 <?php
 /*
 Plugin Name: Minimal Share Buttons
-Plugin URI: http://greatgonzo.net/
-Description: Minimal share buttons that don't spy on users and don't require a ton of JavaScript
+Plugin URI: https://github.com/gonzomir/minimal-share-buttons
+Description: A social share plugin that doesn't spy on users and doesn't slow down you site.
 Author: Milen Petrinski - Gonzo
 Author URI: http://greatgonzo.net/
 Version: 0.1
+License: GPL3
+License URI: https://www.gnu.org/licenses/gpl.html
+Text Domain: minimal-share-buttons
+Domain Path: /languages
 */
 
 define( 'MSB_PLUGIN_BASE', plugin_dir_path( __FILE__ ) );
