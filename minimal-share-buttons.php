@@ -53,7 +53,7 @@ add_filter( "plugin_action_links_" . plugin_basename( __FILE__ ), 'msb_add_setti
  */
 function msb_content_filter( $content ) {
 
-  if ( is_single() ) {
+  if ( is_single() || is_page() ) {
     $widget_args = array(
       'before_widget' => '<aside class="msb-container">',
       'after_widget'  => '</aside>',
