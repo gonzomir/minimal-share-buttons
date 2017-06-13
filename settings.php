@@ -27,7 +27,7 @@ function msb_settings_init() {
     ]
   );
 
-  register_setting( 'minimal-share-buttons', 'msb_content_filter', 'boolval' );
+  register_setting( 'minimal-share-buttons', 'msb_content_filter' );
   register_setting( 'minimal-share-buttons', 'msb_content_title', 'sanitize_text_field' );
 
   add_settings_section(
@@ -37,15 +37,15 @@ function msb_settings_init() {
     'minimal-share-buttons'
   );
 
+  $msb_content_filter = get_option( 'msb_content_filter', array( 'post' => true, 'page' => false, 'attachment' => true ) );
   add_settings_field(
     'msb_content_filter',
     __( 'Show buttons under content', 'minimal-share-buttons' ),
-    'msb_checkbox_field',
+    'msb_post_types_fieldset',
     'minimal-share-buttons',
     'msb_section_display',
     [
-      'label_for' => 'msb_content_filter',
-      'value' => boolval( get_option( 'msb_content_filter', false ) )
+      'value' => $msb_content_filter
     ]
   );
 
@@ -121,6 +121,29 @@ function msb_socials_fieldset( $args ) {
     <p>
       <input type="checkbox" id="msb_socials_<?php echo $social; ?>" name="msb_socials[<?php echo $social; ?>]" value="true" <?php echo ( isset( $args['value'][$social] ) && $args['value'][$social] ) ? 'checked' :  '' ; ?> />
       <label for="msb_socials_<?php echo $social; ?>"><?php echo esc_html( $labels[$social] ); ?></label>
+    </p>
+  <?php endforeach; ?>
+  </fieldset>
+  <?php
+
+}
+
+function msb_post_types_fieldset( $args ) {
+
+  $pt_args = array(
+      'public' => true ,
+      '_builtin' => true
+  );
+  $output = 'object';
+  $operator = 'and';
+  $post_types = get_post_types( $pt_args , $output , $operator );
+
+  ?>
+  <fieldset>
+    <?php foreach( $post_types as $post_type ): ?>
+    <p>
+      <input type="checkbox" id="msb_content_filter_<?php echo $post_type->name; ?>" name="msb_content_filter[<?php echo $post_type->name; ?>]" value="true" <?php echo ( isset( $args['value'][$post_type->name] ) && $args['value'][$post_type->name] ) ? 'checked' :  '' ; ?> />
+      <label for="msb_content_filter_<?php echo $post_type->name; ?>"><?php echo esc_html( $post_type->labels->name ); ?></label>
     </p>
   <?php endforeach; ?>
   </fieldset>

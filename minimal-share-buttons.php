@@ -53,38 +53,47 @@ add_filter( "plugin_action_links_" . plugin_basename( __FILE__ ), 'msb_add_setti
 /**
  * Show share widget after post content.
  *
- * @uses is_single()
  */
 function msb_content_filter( $content ) {
 
-  if ( is_single() || is_page() ) {
-    $widget_args = array(
-      'before_widget' => '<aside class="msb-container">',
-      'after_widget'  => '</aside>',
-      'before_title'  => '<h2>',
-      'after_title'   => '</h2>'
-    );
-    $instance_args = array(
-      'title' => get_option( 'msb_content_title', __( 'Share this', 'minimal-share-buttons' ) )
-    );
-    ob_start();
-    the_widget( 'minimal_share_buttons', $instance_args, $widget_args );
-    $output = ob_get_contents();
-    ob_end_clean();
-    $content .= $output;
-  }
+  $widget_args = array(
+    'before_widget' => '<aside class="msb-container">',
+    'after_widget'  => '</aside>',
+    'before_title'  => '<h2>',
+    'after_title'   => '</h2>'
+  );
+  $instance_args = array(
+    'title' => get_option( 'msb_content_title', __( 'Share this', 'minimal-share-buttons' ) )
+  );
+  ob_start();
+  the_widget( 'minimal_share_buttons', $instance_args, $widget_args );
+  $output = ob_get_contents();
+  ob_end_clean();
+  $content .= $output;
 
   return $content;
 
 }
 
-function msb_init(){
+function msb_content_filter_init(){
 
-  $filter = get_option( 'msb_content_filter', false );
+  $defaults = array( 'post' => true, 'page' => false, 'attachment' => true );
+  $msb_content_filter = get_option( 'msb_content_filter', $defaults );
+  if( !is_array( $msb_content_filter ) ) {
+    $msb_content_filter = $defaults;
+  }
+
+  $post_type = get_post_type();
+  $filter = array_key_exists( $post_type, $msb_content_filter ) && $msb_content_filter[ $post_type ];
 
   if ( $filter ) {
     add_filter( 'the_content', 'msb_content_filter', 999 );
   }
+
+}
+add_action( 'loop_start', 'msb_content_filter_init' );
+
+function msb_init(){
 
   // Make plugin available for translation
   // Translations can be filed in the /languages/ directory
