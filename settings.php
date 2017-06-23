@@ -140,6 +140,7 @@ function msb_post_types_fieldset( $args ) {
 
   ?>
   <fieldset>
+    <input type="hidden" name="msb_content_filter[none]" value="true" />
     <?php foreach( $post_types as $post_type ): ?>
     <p>
       <input type="checkbox" id="msb_content_filter_<?php echo $post_type->name; ?>" name="msb_content_filter[<?php echo $post_type->name; ?>]" value="true" <?php echo ( isset( $args['value'][$post_type->name] ) && $args['value'][$post_type->name] ) ? 'checked' :  '' ; ?> />

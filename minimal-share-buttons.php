@@ -79,6 +79,7 @@ function msb_content_filter_init(){
 
   $defaults = array( 'post' => true, 'page' => false, 'attachment' => true );
   $msb_content_filter = get_option( 'msb_content_filter', $defaults );
+
   if( !is_array( $msb_content_filter ) ) {
     $msb_content_filter = $defaults;
   }
