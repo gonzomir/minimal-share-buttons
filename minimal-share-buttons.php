@@ -85,6 +85,8 @@ function msb_content_filter_init(){
   }
 
   $post_type = get_post_type();
+  if( ! $post_type ) return;
+
   $filter = array_key_exists( $post_type, $msb_content_filter ) && $msb_content_filter[ $post_type ];
 
   if ( $filter ) {
