@@ -1,7 +1,7 @@
 === Minimal Share Buttons ===
 Tags: facebook, share buttons, social media, social sharing, twitter, linkedin
-Tested up to: 4.8
-Stable tag: 0.1
+Tested up to: 4.8.1
+Stable tag: 0.1.1
 License: GPL3 or later
 License URI: https://www.gnu.org/licenses/gpl.html
 
