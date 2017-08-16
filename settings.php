@@ -22,9 +22,9 @@ function msb_settings_init() {
     'msb_socials_fieldset',
     'minimal-share-buttons',
     'msb_section_networks',
-    [
+    array(
       'value' => $socials
-    ]
+    )
   );
 
   register_setting( 'minimal-share-buttons', 'msb_content_filter' );
@@ -44,9 +44,9 @@ function msb_settings_init() {
     'msb_post_types_fieldset',
     'minimal-share-buttons',
     'msb_section_display',
-    [
+    array(
       'value' => $msb_content_filter
-    ]
+    )
   );
 
   add_settings_field(
@@ -55,10 +55,10 @@ function msb_settings_init() {
     'msb_text_field',
     'minimal-share-buttons',
     'msb_section_display',
-    [
+    array(
       'label_for' => 'msb_content_title',
       'value' => get_option( 'msb_content_title',  __( 'Share this', 'minimal-share-buttons' ) )
-    ]
+    )
   );
 
 
