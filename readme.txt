@@ -16,3 +16,10 @@ Why choose Minimal Share Buttons before other similar plugins?
 * Minimal and elegant look that blends with your theme (tested with all latest default WordPress themes as well as with some other popular themes)
 * Minimal impact on your site's performance - the plugin loads only a small SVG file with the icons, less than 1k CSS and 3.5к unminified and uncompressed JavaScript - most of it to make SVG icons work in old browsers.
 * Doesn't spy on your users - the plugin doesn't load any thitd-party scripts that record your user's activity on your site, doesn't set or read any cookies.
+
+== Theme developers ==
+
+If your theme uses SVG icons, combined into a SVG sprite, and your sprite has icons for Facebook, Twitter, Google+ and LinkedIn, there are two filters you can use to replace the icons, provided by the plugin, with yours:
+
+* **msb_sprite_url** - the filter is applied to the URL of the sprite image and the filter function should return the URL (without the hash sign) of an SVG sprite image, consisting of icons in `symbol` elements.
+* **msb_icon_name** - the filter is applied to the icon name before concatenating it to the sprite URL. It should return the ID of the icon symbol in the sprite.
