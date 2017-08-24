@@ -1,7 +1,7 @@
 === Minimal Share Buttons ===
 Tags: facebook, share buttons, social media, social sharing, twitter, linkedin
 Tested up to: 4.8.1
-Stable tag: 0.1.1
+Stable tag: 0.2
 License: GPL3 or later
 License URI: https://www.gnu.org/licenses/gpl.html
 
@@ -23,9 +23,22 @@ Why choose Minimal Share Buttons before other similar plugins?
 1. Activate the plugin through the 'Plugins' screen in WordPress
 1. Use the Settings->Share Options screen to select which social networks you want your content to be shared on, and on which post types the share buttons to appear.
 
+== Changelog ==
+
+= 0.2 =
+* Add filters that allow theme developers to use their own SVG sprite and rewrite icons.
+
+= 0.1.1 =
+* Fix old PHP versions compatibility issue
+
+= 0.1 =
+Initial release
+
 == Theme developers ==
 
 If your theme uses SVG icons, combined into a SVG sprite, and your sprite has icons for Facebook, Twitter, Google+ and LinkedIn, there are two filters you can use to replace the icons, provided by the plugin, with yours:
 
 * **msb_sprite_url** - the filter is applied to the URL of the sprite image and the filter function should return the URL (without the hash sign) of an SVG sprite image, consisting of icons in `symbol` elements.
 * **msb_icon_name** - the filter is applied to the icon name before concatenating it to the sprite URL. It should return the ID of the icon symbol in the sprite.
+
+The results of the two filters are concatenated with a hash between them and passed through `esc_url` before output.
