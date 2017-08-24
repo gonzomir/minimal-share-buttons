@@ -117,7 +117,7 @@ register_uninstall_hook( __FILE__, 'msb_uninstall' );
 
 // SVG icon helper
 function msb_icon( $icon, $echo = true ) {
-  $html = '<svg xmlns="http://www.w3.org/2000/svg" class="icon"><use xlink:href="'.MSB_PLUGIN_URL.'/images/icons.svg#icon-'.$icon.'"></use></svg>';
+  $html = '<svg xmlns="http://www.w3.org/2000/svg" class="icon" aria-hidden="true"><use xlink:href="'.MSB_PLUGIN_URL.'/images/icons.svg#icon-'.$icon.'"></use></svg>';
   if ( $echo ) {
     echo $html;
   }
