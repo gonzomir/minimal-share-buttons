@@ -1,121 +1,147 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-20 08:47+0000\n"
+"POT-Creation-Date: 2017-09-01 10:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
-"Language: \n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Loco - https://localise.biz/"
+"X-Generator: Loco - https://localise.biz/\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: blocks/index.js\n"
+"X-Poedit-SearchPath-2: blocks/index.php\n"
+"X-Poedit-SearchPath-3: minimal-share-buttons.php\n"
+"X-Poedit-SearchPath-4: settings.php\n"
+"X-Poedit-SearchPath-5: widget.php\n"
+"X-Poedit-SearchPathExcluded-0: node_modules\n"
+"Language: "
 
-#: ../../../../../Projects/minimal-share-buttons/settings.php:12
+#: settings.php:12
 msgid "Social networks"
 msgstr ""
 
-#: ../../../../../Projects/minimal-share-buttons/settings.php:21
+#: settings.php:21
 msgid "Select social networks"
 msgstr ""
 
-#: ../../../../../Projects/minimal-share-buttons/settings.php:35
+#: settings.php:35
 msgid "Display settings"
 msgstr ""
 
-#. use $args' label_for to populate the id inside the callback
-#: ../../../../../Projects/minimal-share-buttons/settings.php:42
+#: settings.php:43
 msgid "Show buttons under content"
 msgstr ""
 
-#: ../../../../../Projects/minimal-share-buttons/settings.php:54
+#: settings.php:54
 msgid "Title of the section under content"
 msgstr ""
 
-#: ../../../../../Projects/minimal-share-buttons/settings.php:60
-#: ../../../../../Projects/minimal-share-buttons/minimal-share-buttons.php:57
+#: settings.php:60
+#: minimal-share-buttons.php:67
 msgid "Share this"
 msgstr ""
 
-#: ../../../../../Projects/minimal-share-buttons/settings.php:79
+#: settings.php:79
 msgid "Select the social networks you wish your content to be shared on."
 msgstr ""
 
-#: ../../../../../Projects/minimal-share-buttons/settings.php:86
+#: settings.php:86
 msgid "Settings that control the appearance of the buttons."
 msgstr ""
 
-#. use $args' label_for to populate the id inside the callback
-#: ../../../../../Projects/minimal-share-buttons/settings.php:113
+#: settings.php:113
 msgid "Facebook"
 msgstr ""
 
-#. use $args' label_for to populate the id inside the callback
-#: ../../../../../Projects/minimal-share-buttons/settings.php:114
+#: settings.php:114
 msgid "Twitter"
 msgstr ""
 
-#. use $args' label_for to populate the id inside the callback
-#: ../../../../../Projects/minimal-share-buttons/settings.php:115
+#: settings.php:115
 msgid "Google Plus"
 msgstr ""
 
-#. use $args' label_for to populate the id inside the callback
-#: ../../../../../Projects/minimal-share-buttons/settings.php:116
+#: settings.php:116
 msgid "LinkedIn"
 msgstr ""
 
-#: ../../../../../Projects/minimal-share-buttons/settings.php:135
-#: ../../../../../Projects/minimal-share-buttons/settings.php:136
+#: settings.php:159
+#: settings.php:160
 msgid "Share Options"
 msgstr ""
 
-#: ../../../../../Projects/minimal-share-buttons/settings.php:173
+#: settings.php:197
 msgid "Save Settings"
 msgstr ""
 
-#: ../../../../../Projects/minimal-share-buttons/widget.php:10
+#: widget.php:10
 msgid "Share widget"
 msgstr ""
 
-#: ../../../../../Projects/minimal-share-buttons/widget.php:37
+#: widget.php:37
 msgid "Share on Facebook"
 msgstr ""
 
-#: ../../../../../Projects/minimal-share-buttons/widget.php:40
+#: widget.php:40
 msgid "Share on Twitter"
 msgstr ""
 
-#: ../../../../../Projects/minimal-share-buttons/widget.php:43
+#: widget.php:43
 msgid "Share on LinkedIn"
 msgstr ""
 
-#: ../../../../../Projects/minimal-share-buttons/widget.php:46
+#: widget.php:46
 msgid "Share on Google Plus"
 msgstr ""
 
-#: ../../../../../Projects/minimal-share-buttons/widget.php:71
+#: widget.php:71
+#: blocks/index.php:20
 msgid "Share"
 msgstr ""
 
-#. Name of the plugin
+#: blocks/index.js:11
 msgid "Minimal Share Buttons"
+msgstr ""
+
+#: blocks/index.js:42
+msgid ""
+"Shows Minimal Shate Buttons widget with the buttons, set in the plugin "
+"settings"
+msgstr ""
+
+#: blocks/index.js:44
+msgid "Share block settings"
+msgstr ""
+
+#: blocks/index.js:46
+msgid "Block title"
+msgstr ""
+
+#: blocks/index.js:56
+msgid "Share buttons will go here acording to plugin settings."
 msgstr ""
 
 #. Description of the plugin
 msgid ""
-"Minimal share buttons that don't spy on users and don't require a ton of "
-"JavaScript"
+"A social share plugin that doesn't spy on users and doesn't slow down you "
+"site."
 msgstr ""
 
 #. URI of the plugin
-#. Author URI of the plugin
-msgid "http://greatgonzo.net/"
+msgid "https://github.com/gonzomir/minimal-share-buttons"
 msgstr ""
 
 #. Author of the plugin
 msgid "Milen Petrinski - Gonzo"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://greatgonzo.net/"
 msgstr ""
