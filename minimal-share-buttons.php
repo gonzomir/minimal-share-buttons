@@ -18,6 +18,7 @@ define( 'MSB_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 include( MSB_PLUGIN_BASE . 'socials.php' );
 include( MSB_PLUGIN_BASE . 'settings.php' );
 include( MSB_PLUGIN_BASE . 'widget.php' );
+include( MSB_PLUGIN_BASE . 'blocks/index.php' );
 
 
 function msb_scripts() {
@@ -128,5 +129,13 @@ function msb_icon( $icon, $echo = true ) {
 }
 
 
+function msb_enqueue_block_editor_assets() {
+  wp_enqueue_script(
+    'msb-share-block',
+    plugins_url( 'blocks/index.js', __FILE__ ),
+    array( 'wp-blocks', 'wp-element' )
+  );
+}
+add_action( 'enqueue_block_editor_assets', 'msb_enqueue_block_editor_assets' );
 
 ?>
