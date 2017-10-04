@@ -15,6 +15,7 @@ Domain Path: /languages
 define( 'MSB_PLUGIN_BASE', plugin_dir_path( __FILE__ ) );
 define( 'MSB_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
+include( MSB_PLUGIN_BASE . 'socials.php' );
 include( MSB_PLUGIN_BASE . 'settings.php' );
 include( MSB_PLUGIN_BASE . 'widget.php' );
 
