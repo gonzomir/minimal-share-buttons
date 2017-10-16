@@ -70,3 +70,9 @@ The filter is applied to the default list of social networks and allows adding o
     }
     add_filter( 'msb_socials', 'my_add_xing' );
 
+
+== Credits ==
+
+* SVG Icons from (Font-Awesome-SVG-PNG)[https://github.com/encharm/Font-Awesome-SVG-PNG], MIT licence
+* Banner image by (heinzremyschindler on pixbay)[https://pixabay.com/en/share-play-words-2482016/], (Creative Commons CC0)[https://creativecommons.org/publicdomain/zero/1.0/deed.en]
+* Plugin icon based on (work by Nathan Diesel from the Noun Project)[https://thenounproject.com/term/share/107273/], (Creative Commons CC-BY)[http://creativecommons.org/licenses/by/3.0/us/]
