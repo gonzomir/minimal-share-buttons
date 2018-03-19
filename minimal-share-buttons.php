@@ -118,8 +118,8 @@ register_uninstall_hook( __FILE__, 'msb_uninstall' );
 
 // SVG icon helper
 function msb_icon( $icon, $echo = true ) {
-  $icon = apply_filters( 'msb_icon_name', 'icon-'.$icon );
-  $sprite_url = apply_filters( 'msb_sprite_url', MSB_PLUGIN_URL.'/images/icons.svg' );
+  $icon = apply_filters( 'msb_icon_name', 'icon-' . $icon );
+  $sprite_url = apply_filters( 'msb_sprite_url', MSB_PLUGIN_URL . 'images/icons.svg' );
   $html = '<svg xmlns="http://www.w3.org/2000/svg" class="icon" aria-hidden="true"><use xlink:href="'. esc_url( $sprite_url . '#' . $icon ) . '"></use></svg>';
   if ( $echo ) {
     echo $html;

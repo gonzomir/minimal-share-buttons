@@ -6,9 +6,18 @@
 
 class MsbSettings {
 
+  private static $instance;
+
+  public static function get_instance() {
+    if (null === self::$instance) {
+      self::$instance = new self();
+    }
+    return self::$instance;
+  }
+
   public static function init() {
-    $self = new self();
-    add_action('wp_loaded', array($self, 'load'));
+    $self = self::get_instance();
+    add_action( 'wp_loaded', array( $self, 'load' ) );
   }
 
   public function load(){
@@ -172,7 +181,7 @@ class MsbSettings {
       __( 'Share Options', 'minimal-share-buttons' ),
       'manage_options',
       'minimal-share-buttons',
-      array( $this, 'options_page_html' )
+      array( MsbSettings::get_instance(), 'options_page_html' )
     );
   }
 
