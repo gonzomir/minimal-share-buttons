@@ -1,7 +1,7 @@
 === Minimal Share Buttons ===
 Tags: facebook, share buttons, social media, social sharing, twitter, linkedin
-Tested up to: 4.8.2
-Stable tag: 0.3
+Tested up to: 4.9.4
+Stable tag: 0.4
 License: GPL3 or later
 License URI: https://www.gnu.org/licenses/gpl.html
 Contributors: gonzomir
@@ -25,6 +25,9 @@ Why choose Minimal Share Buttons before other similar plugins?
 1. Use the Settings->Share Options screen to select which social networks you want your content to be shared on, and on which post types the share buttons to appear.
 
 == Changelog ==
+
+= 0.4 =
+* Fix $this reference when registering settings page in settings.php
 
 = 0.3 =
 * Refactor settings.php into a class.
