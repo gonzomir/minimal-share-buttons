@@ -29,7 +29,7 @@ class MsbSocials {
       'twitter' => array(
           'field_label' => __( 'Twitter', 'minimal-share-buttons' ),
           'button_label' => __(  'Share on Twitter', 'minimal-share-buttons' ),
-          'share_url' => 'https://twitter.com/share?text=%2$s'
+          'share_url' => 'https://twitter.com/intent/tweet?url=%1$s&text=%2$s'
         ),
       'google-plus' => array(
           'field_label' => __( 'Google Plus', 'minimal-share-buttons' ),
