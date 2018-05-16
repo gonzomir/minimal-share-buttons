@@ -10,7 +10,9 @@ domready(function (){
           var w = 640, h = 380;
           var x = (window.screen.width-w)/2;
           var y = (window.screen.height-h)/2;
-          window.open(this.href, 'sharewin', 'width='+w+',height='+h+',left='+x+',top='+y+',menubar=no,location=no,resizable=yes,status=no');
+          var w = window.open('about:blank', 'sharewin', 'width='+w+',height='+h+',left='+x+',top='+y+',menubar=no,location=no,resizable=yes,status=no');
+          w.opener = null;
+          w.location = this.href;
           return false;
         }
     }
