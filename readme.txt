@@ -1,7 +1,7 @@
 === Minimal Share Buttons ===
 Tags: facebook, share buttons, social media, social sharing, twitter, linkedin
-Tested up to: 4.9.4
-Stable tag: 0.4
+Tested up to: 4.9.5
+Stable tag: 0.5
 License: GPL3 or later
 License URI: https://www.gnu.org/licenses/gpl.html
 Contributors: gonzomir
@@ -17,6 +17,7 @@ Why choose Minimal Share Buttons before other similar plugins?
 * Minimal and elegant look that blends with your theme (tested with all latest default WordPress themes as well as with some other popular themes)
 * Minimal impact on your site's performance - the plugin loads only a small SVG file with the icons, less than 1k CSS and 3.5к unminified and uncompressed JavaScript - most of it to make SVG icons work in old browsers.
 * Doesn't spy on your users - the plugin doesn't load any thitd-party scripts that record your user's activity on your site, doesn't set or read any cookies.
+* GDPR-hasle-free - since the plugin doesn't leak personal information to third parties, this makes it easier for website owners to comply with the European privacy regulations.
 
 == Installation ==
 
@@ -25,6 +26,10 @@ Why choose Minimal Share Buttons before other similar plugins?
 1. Use the Settings->Share Options screen to select which social networks you want your content to be shared on, and on which post types the share buttons to appear.
 
 == Changelog ==
+
+= 0.5 =
+* Update Twitter share URL to include permalink of page/post
+* Add rel="noopener" to share links, nullify window.opener in javascript.
 
 = 0.4 =
 * Fix $this reference when registering settings page in settings.php
