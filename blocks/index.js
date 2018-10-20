@@ -1,17 +1,13 @@
 ( function( blocks, element, i18n ) {
   var el = element.createElement,
-    registerBlockType = blocks.registerBlockType,
-    __ = i18n.__,
-    Editable = blocks.Editable,
-    children = blocks.source.children,
-    blockStyle = { backgroundColor: '#900', color: '#fff', padding: '20px' };
+      registerBlockType = blocks.registerBlockType,
+      __ = i18n.__;
 
   registerBlockType( 'msb/share', {
 
-    title: __( 'Minimal Share Buttons' ),
-
+    title: __( 'Minimal Share Buttons', 'minimal-share-buttons' ),
+    description: __( 'Shows Minimal Shate Buttons widget with the buttons, set in the plugin settings', 'minimal-share-buttons' ),
     icon: 'share',
-
     category: 'widgets',
 
     attributes: {
@@ -19,54 +15,47 @@
         type: 'string',
         default: 'none',
       },
-      blockTitle: {
+      title: {
         type: 'string',
-        default: __( 'Share' ),
+        default: __( 'Share', 'minimal-share-buttons' ),
       }
     },
 
     edit: function( props ) {
-      var focus = props.focus;
+      var isSelected = props.isSelected;
 
       return [
-        focus && (el( blocks.BlockControls, {key: "controls"},
-          el( blocks.AlignmentToolbar, {
+        isSelected && (el( wp.editor.BlockControls, {key: "controls"},
+          el( wp.editor.BlockAlignmentToolbar, {
             value: props.attributes.align,
-            onChange: function( nextAlign ){
+            controls: ['left', 'center', 'right'],
+            onChange: ( nextAlign ) => {
               props.setAttributes( { align: nextAlign } );
             }
-          })
+          }),
         )),
-        focus && (el( blocks.InspectorControls, {key: "inspector"},
-          el( blocks.BlockDescription, {},
-            el( 'p', {}, __( 'Shows Minimal Shate Buttons widget with the buttons, set in the plugin settings' ) )
+        el( wp.editor.InspectorControls, {key: "inspector"},
+          el( wp.components.PanelBody, {
+              title: __( 'Main Settings', 'minimal-share-buttons' ),
+            },
+            el( wp.components.TextControl, {
+              label: __( 'Title', 'minimal-share-buttons' ),
+              type: 'text',
+              value: props.attributes.title,
+              onChange: function( value ) {
+                props.setAttributes( { title: value } );
+              }
+            })
           ),
-          el( 'h3', {}, __( 'Share block settings' ) ),
-          el( blocks.InspectorControls.TextControl, {
-            label: __( 'Block title' ),
-            type: 'text',
-            value: props.attributes.blockTitle,
-            onChange: function( value ){
-              props.setAttributes( { blockTitle: value } );
-            }
-          })
-        )),
-        el( 'aside', { className: 'msb-container ' + props.className },
-          el( 'h2', {}, props.attributes.blockTitle ),
-          el( 'p', {}, __( 'Share buttons will go here acording to plugin settings.' ) )
-        )
+        ),
+        el( wp.components.ServerSideRender, {
+          block: 'msb/share',
+          attributes: props.attributes,
+        }),
       ];
     },
 
     save: function( props ) {
-      /*
-      return (
-        el( 'aside', { className: 'msb-container ' + props.className },
-          el( 'h2', {}, props.attributes.blockTitle),
-          el( 'p', {}, __( 'Share buttons will go here acording to plugin settings.' ) )
-        )
-      )
-      */
       return null;
     },
 

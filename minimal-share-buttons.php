@@ -127,15 +127,3 @@ function msb_icon( $icon, $echo = true ) {
   }
   return $html;
 }
-
-
-function msb_enqueue_block_editor_assets() {
-  wp_enqueue_script(
-    'msb-share-block',
-    plugins_url( 'blocks/index.js', __FILE__ ),
-    array( 'wp-blocks', 'wp-element' )
-  );
-}
-add_action( 'enqueue_block_editor_assets', 'msb_enqueue_block_editor_assets' );
-
-?>

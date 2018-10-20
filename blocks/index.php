@@ -1,26 +1,57 @@
 <?php
 /**
- * Server-side rendering of the `msb/share` block.
+ * `msb/share` block.
  *
  * @package minimal-share-buttons
  */
+
+/**
+ * Enqueue block main JavaScript file
+ */
+function msb_enqueue_block_editor_assets() {
+  wp_enqueue_script(
+    'msb-share-block',
+    plugins_url( 'index.js', __FILE__ ),
+    array( 'wp-blocks', 'wp-element' )
+  );
+}
+add_action( 'enqueue_block_editor_assets', 'msb_enqueue_block_editor_assets' );
+
+/**
+ * Enqueue styles in the block editor too.
+ */
+add_action( 'enqueue_block_editor_assets', 'msb_styles' );
+
+/**
+ * Register our block for server-side rendering.
+ */
+register_block_type( 'msb/share', array(
+  'attributes'      => array(
+      'title' => [
+        'type' => 'string',
+        'default' => __( 'Share', 'minimal-share-buttons' ),
+      ],
+      'align' => [
+        'type' => 'string',
+        'defailt' => 'none',
+      ],
+  ),
+  'render_callback' => 'msb_render_block_share',
+) );
+
 /**
  * Renders the `msb/share` block on server.
  *
  * @param array $attributes The block attributes.
  *
- * @return string Returns the post content with share widget added.
+ * @return string
  */
 function msb_render_block_share( $attributes ) {
 
-  error_log( 'DEBUG OUTPUT STARTS HERE' );
-  error_log( print_r( $attributes, true ) );
-  error_log( 'DEBUG OUTPUT ENDS HERE' );
+  $title = __( 'Share', 'minimal-share-buttons' );
 
-  $title = __('Share', 'minimal-share-buttons');
-
-  if ( array_key_exists( 'blockTitle', $attributes ) ) {
-    $title = trim( $attributes['blockTitle'] );
+  if ( array_key_exists( 'title', $attributes ) ) {
+    $title = trim( $attributes['title'] );
   }
 
   $align = array_key_exists( 'align', $attributes ) ? $attributes['align'] : 'none';
@@ -41,6 +72,4 @@ function msb_render_block_share( $attributes ) {
 
   return preg_replace( '/[\n\r]+/i', ' ', $block_content );
 }
-register_block_type( 'msb/share', array(
-  'render_callback' => 'msb_render_block_share',
-) );
+
