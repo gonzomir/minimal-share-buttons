@@ -1,7 +1,7 @@
-( function( blocks, element, i18n ) {
-  var el = element.createElement,
-      registerBlockType = blocks.registerBlockType,
-      __ = i18n.__;
+( function() {
+  var __ = wp.i18n.__; // The __() for internationalization.
+  var el = wp.element.createElement; // The wp.element.createElement() function to create elements.
+  var registerBlockType = wp.blocks.registerBlockType; // The registerBlockType() to register wp.blocks.
 
   registerBlockType( 'msb/share', {
 
@@ -60,8 +60,4 @@
     },
 
   } );
-} )(
-  window.wp.blocks,
-  window.wp.element,
-  window.wp.i18n
-);
+} )();
