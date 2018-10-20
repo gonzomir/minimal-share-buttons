@@ -18,7 +18,12 @@ define( 'MSB_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 include( MSB_PLUGIN_BASE . 'socials.php' );
 include( MSB_PLUGIN_BASE . 'settings.php' );
 include( MSB_PLUGIN_BASE . 'widget.php' );
-include( MSB_PLUGIN_BASE . 'blocks/index.php' );
+
+if ( function_exists( 'register_block_type' ) ) {
+  // Gutenberg is active.
+  include( MSB_PLUGIN_BASE . 'blocks/index.php' );
+}
+
 
 /**
  * Enqueue scripts for the frontend.
