@@ -1,10 +1,10 @@
 === Minimal Share Buttons ===
 Tags: facebook, share buttons, social media, social sharing, twitter, linkedin
-Tested up to: 4.9.5
-Stable tag: 0.5
+Tested up to: 4.9.6
+Stable tag: 0.6
 License: GPL3 or later
 License URI: https://www.gnu.org/licenses/gpl.html
-Contributors: gonzomir
+Contributors: gonzomir, adrian-roselli
 
 A social share plugin that doesn't spy on users and doesn't slow down you site.
 
@@ -18,6 +18,7 @@ Why choose Minimal Share Buttons before other similar plugins?
 * Minimal impact on your site's performance - the plugin loads only a small SVG file with the icons, less than 1k CSS and 3.5к unminified and uncompressed JavaScript - most of it to make SVG icons work in old browsers.
 * Doesn't spy on your users - the plugin doesn't load any thitd-party scripts that record your user's activity on your site, doesn't set or read any cookies.
 * GDPR-hasle-free - since the plugin doesn't leak personal information to third parties, this makes it easier for website owners to comply with the European privacy regulations.
+* Accessibility - the share links have labels, read by screen readers and visible for keyboard users.
 
 == Installation ==
 
@@ -26,6 +27,9 @@ Why choose Minimal Share Buttons before other similar plugins?
 1. Use the Settings->Share Options screen to select which social networks you want your content to be shared on, and on which post types the share buttons to appear.
 
 == Changelog ==
+
+= 0.6 =
+* Accessibility fix and enhancement thanks to @adrian-roselli
 
 = 0.5 =
 * Update Twitter share URL to include permalink of page/post
@@ -51,7 +55,7 @@ Initial release
 
 If your theme uses SVG icons, combined into a SVG sprite, and your sprite has icons for Facebook, Twitter, Google+ and LinkedIn, there are two filters you can use to replace the icons, provided by the plugin, with yours. The results of the two filters are concatenated with a hash between them and passed through `esc_url` before output.
 
-Another filter allows maipulation of the array of social networks.
+Another filter allows manipulation of the array of social networks.
 
 ===msb_sprite_url===
 
