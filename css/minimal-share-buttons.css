@@ -1,3 +1,16 @@
+.gutenberg div[data-type="msb/share"] .editor-block-list__block-edit > div::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.msb-container.aligncenter {
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
 .msb-container h2,
 .entry-content .msb-container h2,
 .page-content .msb-container h2 {
