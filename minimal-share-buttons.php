@@ -20,7 +20,9 @@ include( MSB_PLUGIN_BASE . 'settings.php' );
 include( MSB_PLUGIN_BASE . 'widget.php' );
 include( MSB_PLUGIN_BASE . 'blocks/index.php' );
 
-
+/**
+ * Enqueue scripts for the frontend.
+ */
 function msb_scripts() {
 
 
@@ -36,7 +38,9 @@ function msb_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'msb_scripts' );
 
-
+/**
+ * Enqueue styles for the frontend.
+ */
 function msb_styles() {
 
   wp_enqueue_style( 'msb-style', MSB_PLUGIN_URL.'/css/minimal-share-buttons.css' );
@@ -45,6 +49,9 @@ function msb_styles() {
 add_action( 'wp_enqueue_scripts', 'msb_styles' );
 
 
+/**
+ * Add link to settings in plugins list item actions.
+ */
 function msb_add_settings_link( $links ) {
     $settings_link = '<a href="options-general.php?page=minimal-share-buttons">' . __( 'Settings' ) . '</a>';
     array_unshift( $links, $settings_link );
@@ -55,6 +62,9 @@ add_filter( "plugin_action_links_" . plugin_basename( __FILE__ ), 'msb_add_setti
 /**
  * Show share widget after post content.
  *
+ * @param string $content Post content.
+ *
+ * @return string
  */
 function msb_content_filter( $content ) {
 
@@ -77,12 +87,20 @@ function msb_content_filter( $content ) {
 
 }
 
+/**
+ * Add filter to `the_content` to render the share widget.
+ */
 function msb_content_filter_init(){
+
+  // Bail early, we'll add `the_content` filter only on single pages.
+  if ( ! is_singular() ) {
+    return;
+  }
 
   $defaults = array( 'post' => true, 'page' => false, 'attachment' => true );
   $msb_content_filter = get_option( 'msb_content_filter', $defaults );
 
-  if( !is_array( $msb_content_filter ) ) {
+  if( ! is_array( $msb_content_filter ) ) {
     $msb_content_filter = $defaults;
   }
 
@@ -98,6 +116,9 @@ function msb_content_filter_init(){
 }
 add_action( 'loop_start', 'msb_content_filter_init' );
 
+/**
+ * Plugin init.
+ */
 function msb_init(){
 
   // Make plugin available for translation
@@ -107,7 +128,9 @@ function msb_init(){
 }
 add_action( 'plugins_loaded', 'msb_init' );
 
-
+/**
+ * Uninstall hook to clear options.
+ */
 function msb_uninstall(){
 
   delete_option( 'msb_socials' );
@@ -117,7 +140,9 @@ function msb_uninstall(){
 }
 register_uninstall_hook( __FILE__, 'msb_uninstall' );
 
-// SVG icon helper
+/**
+ * SVG icon helper.
+ */
 function msb_icon( $icon, $echo = true ) {
   $icon = apply_filters( 'msb_icon_name', 'icon-' . $icon );
   $sprite_url = apply_filters( 'msb_sprite_url', MSB_PLUGIN_URL . 'images/icons.svg' );

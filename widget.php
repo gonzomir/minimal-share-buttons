@@ -1,11 +1,12 @@
 <?php
 
-function minimal_share_buttons_widget() {
-  return register_widget('minimal_share_buttons');
-}
-
+/**
+ * Minimal Share Buttons widget
+ */
 class minimal_share_buttons extends WP_Widget {
-  /** constructor */
+  /**
+   * Constructor
+   */
   function __construct() {
     parent::__construct( 'minimal_share_buttons', $name = __('Share widget', 'minimal-share-buttons'), array(
       'customize_selective_refresh' => true,
@@ -13,8 +14,8 @@ class minimal_share_buttons extends WP_Widget {
   }
 
   /**
-  * This is the Widget
-  **/
+   * This is the Widget
+   */
   function widget( $args, $instance ) {
     global $post;
     extract($args);
@@ -55,8 +56,8 @@ class minimal_share_buttons extends WP_Widget {
   }
 
   /**
-  * Widget settings
-  **/
+   * Widget settings
+   */
   function form( $instance ) {
       // instance exist? if not set defaults
       if ( $instance ) {
@@ -76,3 +77,10 @@ class minimal_share_buttons extends WP_Widget {
 
 }
 add_action( 'widgets_init', 'minimal_share_buttons_widget' );
+
+/**
+ * Register our widget with WordPress.
+ */
+function minimal_share_buttons_widget() {
+  return register_widget( 'minimal_share_buttons' );
+}
