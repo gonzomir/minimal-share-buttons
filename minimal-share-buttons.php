@@ -31,15 +31,32 @@ if ( function_exists( 'register_block_type' ) ) {
 function msb_scripts() {
 
 
-  wp_register_script( 'svg4everybody', MSB_PLUGIN_URL.'/js/svg4everybody.legacy.min.js', array() );
+  wp_register_script(
+    'svg4everybody',
+    plugins_url( 'js/svg4everybody.legacy.min.js', __FILE__ ),
+    array(),
+    filemtime( MSB_PLUGIN_BASE . 'js/svg4everybody.legacy.min.js' )
+  );
   wp_enqueue_script( 'svg4everybody' );
 
-  wp_register_script( 'domready', MSB_PLUGIN_URL.'/js/ready.min.js', array() );
+  wp_register_script(
+    'domready',
+    plugins_url( 'js/ready.min.js', __FILE__ ),
+    array(),
+    filemtime( MSB_PLUGIN_BASE . 'js/ready.min.js' )
+  );
   wp_enqueue_script( 'domready' );
 
-  wp_register_script( 'msb-script', MSB_PLUGIN_URL.'/js/minimal-share-buttons.js', array( 'svg4everybody', 'domready' ) );
+  wp_register_script(
+    'msb-script',
+    plugins_url( 'js/minimal-share-buttons.js', __FILE__ ),
+    array(
+      'svg4everybody',
+      'domready'
+    ),
+    filemtime( MSB_PLUGIN_BASE . 'js/minimal-share-buttons.js' )
+  );
   wp_enqueue_script( 'msb-script' );
-
 }
 add_action( 'wp_enqueue_scripts', 'msb_scripts' );
 
@@ -48,7 +65,12 @@ add_action( 'wp_enqueue_scripts', 'msb_scripts' );
  */
 function msb_styles() {
 
-  wp_enqueue_style( 'msb-style', MSB_PLUGIN_URL.'/css/minimal-share-buttons.css' );
+  wp_enqueue_style(
+    'msb-style',
+    plugins_url( 'css/minimal-share-buttons.css', __FILE__ ),
+    array(),
+    filemtime( MSB_PLUGIN_BASE . 'css/minimal-share-buttons.css' )
+  );
 
 }
 add_action( 'wp_enqueue_scripts', 'msb_styles' );
@@ -58,7 +80,10 @@ add_action( 'wp_enqueue_scripts', 'msb_styles' );
  * Add link to settings in plugins list item actions.
  */
 function msb_add_settings_link( $links ) {
-    $settings_link = '<a href="options-general.php?page=minimal-share-buttons">' . __( 'Settings' ) . '</a>';
+    $settings_link = sprintf(
+      '<a href="options-general.php?page=minimal-share-buttons">%1$s</a>',
+      esc_html__( 'Settings', 'minimal-share-buttons' )
+    );
     array_unshift( $links, $settings_link );
     return $links;
 }
@@ -151,7 +176,10 @@ register_uninstall_hook( __FILE__, 'msb_uninstall' );
 function msb_icon( $icon, $echo = true ) {
   $icon = apply_filters( 'msb_icon_name', 'icon-' . $icon );
   $sprite_url = apply_filters( 'msb_sprite_url', MSB_PLUGIN_URL . 'images/icons.svg' );
-  $html = '<svg xmlns="http://www.w3.org/2000/svg" class="icon" aria-hidden="true"><use xlink:href="'. esc_url( $sprite_url . '#' . $icon ) . '"></use></svg>';
+  $html = sprintf(
+    '<svg xmlns="http://www.w3.org/2000/svg" class="icon" aria-hidden="true"><use xlink:href="%1$s"></use></svg>',
+    esc_url( $sprite_url . '#' . $icon )
+  );
   if ( $echo ) {
     echo $html;
   }
