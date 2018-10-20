@@ -22,13 +22,15 @@ class minimal_share_buttons extends WP_Widget {
 
     // Widget options
     if ( array_key_exists( 'title', $instance ) ) {
-      $title = apply_filters('widget_title', $instance['title'] ); // Title
+      $title = apply_filters( 'widget_title', $instance['title'] ); // Title
     } else {
       $title = '';
     }
 
     echo $before_widget;
-    if ( $title ) echo $before_title . $title . $after_title;
+    if ( $title ) {
+      echo $before_title . $title . $after_title;
+    }
 
     $options = get_option( 'msb_socials', array( 'facebook' => false, 'twitter' => false, 'gplus' => false, 'linkedin' => false ) );
 
@@ -59,19 +61,19 @@ class minimal_share_buttons extends WP_Widget {
    * Widget settings
    */
   function form( $instance ) {
-      // instance exist? if not set defaults
-      if ( $instance ) {
-        $title  = $instance['title'];
-      } else {
-          //These are our defaults
-        $title  = __('Share', 'minimal-share-buttons');
-      }
+    // instance exist? if not set defaults
+    if ( $instance ) {
+      $title  = $instance['title'];
+    } else {
+        //These are our defaults
+      $title  = __('Share', 'minimal-share-buttons');
+    }
 
-      // The widget form ?>
-      <p>
-        <label for="<?php echo $this->get_field_id('title'); ?>"><?php echo __( 'Title:' ); ?></label>
-        <input id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" class="widefat" />
-      </p>
+    // The widget form ?>
+    <p>
+      <label for="<?php echo $this->get_field_id('title'); ?>"><?php echo __( 'Title:' ); ?></label>
+      <input id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" class="widefat" />
+    </p>
 <?php
   }
 
