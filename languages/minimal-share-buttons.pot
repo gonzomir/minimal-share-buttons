@@ -1,141 +1,30 @@
-#, fuzzy
+# Copyright (C) 2018 Milen Petrinski - Gonzo
+# This file is distributed under the same license as the Minimal Share Buttons plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-01 10:10+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Project-Id-Version: Minimal Share Buttons 0.6\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/minimal-share-buttons\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: \n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Loco - https://localise.biz/\n"
-"X-Poedit-Basepath: ..\n"
-"X-Poedit-KeywordsList: __\n"
-"X-Poedit-SearchPath-0: .\n"
-"X-Poedit-SearchPath-1: blocks/index.js\n"
-"X-Poedit-SearchPath-2: blocks/index.php\n"
-"X-Poedit-SearchPath-3: minimal-share-buttons.php\n"
-"X-Poedit-SearchPath-4: settings.php\n"
-"X-Poedit-SearchPath-5: widget.php\n"
-"X-Poedit-SearchPathExcluded-0: node_modules\n"
-"Language: "
+"POT-Creation-Date: 2018-10-20T18:32:18+03:00\n"
+"PO-Revision-Date: 2018-10-20T18:32:18+03:00\n"
+"X-Generator: WP-CLI 2.0.1\n"
+"X-Domain: minimal-share-buttons\n"
 
-#: settings.php:12
-msgid "Social networks"
-msgstr ""
-
-#: settings.php:21
-msgid "Select social networks"
-msgstr ""
-
-#: settings.php:35
-msgid "Display settings"
-msgstr ""
-
-#: settings.php:43
-msgid "Show buttons under content"
-msgstr ""
-
-#: settings.php:54
-msgid "Title of the section under content"
-msgstr ""
-
-#: settings.php:60
-#: minimal-share-buttons.php:67
-msgid "Share this"
-msgstr ""
-
-#: settings.php:79
-msgid "Select the social networks you wish your content to be shared on."
-msgstr ""
-
-#: settings.php:86
-msgid "Settings that control the appearance of the buttons."
-msgstr ""
-
-#: settings.php:113
-msgid "Facebook"
-msgstr ""
-
-#: settings.php:114
-msgid "Twitter"
-msgstr ""
-
-#: settings.php:115
-msgid "Google Plus"
-msgstr ""
-
-#: settings.php:116
-msgid "LinkedIn"
-msgstr ""
-
-#: settings.php:159
-#: settings.php:160
-msgid "Share Options"
-msgstr ""
-
-#: settings.php:197
-msgid "Save Settings"
-msgstr ""
-
-#: widget.php:10
-msgid "Share widget"
-msgstr ""
-
-#: widget.php:37
-msgid "Share on Facebook"
-msgstr ""
-
-#: widget.php:40
-msgid "Share on Twitter"
-msgstr ""
-
-#: widget.php:43
-msgid "Share on LinkedIn"
-msgstr ""
-
-#: widget.php:46
-msgid "Share on Google Plus"
-msgstr ""
-
-#: widget.php:71
-#: blocks/index.php:20
-msgid "Share"
-msgstr ""
-
-#: blocks/index.js:11
+#. Plugin Name of the plugin
+#: blocks/index.js:8
 msgid "Minimal Share Buttons"
 msgstr ""
 
-#: blocks/index.js:42
-msgid ""
-"Shows Minimal Shate Buttons widget with the buttons, set in the plugin "
-"settings"
-msgstr ""
-
-#: blocks/index.js:44
-msgid "Share block settings"
-msgstr ""
-
-#: blocks/index.js:46
-msgid "Block title"
-msgstr ""
-
-#: blocks/index.js:56
-msgid "Share buttons will go here acording to plugin settings."
+#. Plugin URI of the plugin
+msgid "https://github.com/gonzomir/minimal-share-buttons"
 msgstr ""
 
 #. Description of the plugin
-msgid ""
-"A social share plugin that doesn't spy on users and doesn't slow down you "
-"site."
-msgstr ""
-
-#. URI of the plugin
-msgid "https://github.com/gonzomir/minimal-share-buttons"
+msgid "A social share plugin that doesn't spy on users and doesn't slow down you site."
 msgstr ""
 
 #. Author of the plugin
@@ -144,4 +33,101 @@ msgstr ""
 
 #. Author URI of the plugin
 msgid "https://greatgonzo.net/"
+msgstr ""
+
+#: socials.php:25
+msgid "Facebook"
+msgstr ""
+
+#: socials.php:26
+msgid "Share on Facebook"
+msgstr ""
+
+#: socials.php:30
+msgid "Twitter"
+msgstr ""
+
+#: socials.php:31
+msgid "Share on Twitter"
+msgstr ""
+
+#: socials.php:35
+msgid "Google Plus"
+msgstr ""
+
+#: socials.php:36
+msgid "Share on Google Plus"
+msgstr ""
+
+#: socials.php:40
+msgid "LinkedIn"
+msgstr ""
+
+#: socials.php:41
+msgid "Share on LinkedIn"
+msgstr ""
+
+#: settings.php:43
+msgid "Social networks"
+msgstr ""
+
+#: settings.php:52
+msgid "Select social networks"
+msgstr ""
+
+#: settings.php:66
+msgid "Display settings"
+msgstr ""
+
+#: settings.php:74
+msgid "Show buttons under content"
+msgstr ""
+
+#: settings.php:85
+msgid "Title of the section under content"
+msgstr ""
+
+#: settings.php:91
+#: minimal-share-buttons.php:78
+msgid "Share this"
+msgstr ""
+
+#: settings.php:106
+msgid "Select the social networks you wish your content to be shared on."
+msgstr ""
+
+#: settings.php:113
+msgid "Settings that control the appearance of the buttons."
+msgstr ""
+
+#: settings.php:180
+#: settings.php:181
+msgid "Share Options"
+msgstr ""
+
+#: settings.php:213
+msgid "Save Settings"
+msgstr ""
+
+#: widget.php:11
+msgid "Share widget"
+msgstr ""
+
+#: widget.php:67
+#: blocks/index.php:37
+#: blocks/index.php:56
+#: blocks/index.js:20
+msgid "Share"
+msgstr ""
+
+#: blocks/index.js:9
+msgid "Shows Minimal Shate Buttons widget with the buttons, set in the plugin settings"
+msgstr ""
+
+#: blocks/index.js:39
+msgid "Main Settings"
+msgstr ""
+
+#: blocks/index.js:42
+msgid "Title"
 msgstr ""

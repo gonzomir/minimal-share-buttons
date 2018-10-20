@@ -6,38 +6,62 @@
  */
 
 /**
- * Enqueue block main JavaScript file
+ * Registers block scripts so that they can be enqueued through Gutenberg in
+ * the corresponding context.
+ *
+ * Passes translations to JavaScript.
  */
-function msb_enqueue_block_editor_assets() {
-  wp_enqueue_script(
+function msb_register_block_editor_scripts() {
+  /*
+   * Main block script.
+   */
+  wp_register_script(
     'msb-share-block',
     plugins_url( 'index.js', __FILE__ ),
-    array( 'wp-blocks', 'wp-element' )
+    array(
+      'wp-blocks',
+      'wp-i18n',
+      'wp-element',
+    ),
+    filemtime( plugin_dir_path( __FILE__ ) . 'index.js' )
   );
+
+  /*
+   * Pass already loaded translations to our JavaScript.
+   * This happens _before_ our JavaScript runs, afterwards it's too late.
+   */
+  wp_add_inline_script(
+    'msb-share-block',
+    'wp.i18n.setLocaleData(' . json_encode( gutenberg_get_jed_locale_data( 'minimal-share-buttons' ) ) . ');',
+    'before'
+  );
+
+  /*
+   * Register our block for server-side rendering.
+   */
+  register_block_type( 'msb/share', array(
+    'editor_script' => 'msb-share-block',
+    'editor_style' => 'msb-share-block',
+    'attributes' => array(
+        'title' => [
+          'type' => 'string',
+          'default' => __( 'Share', 'minimal-share-buttons' ),
+        ],
+        'align' => [
+          'type' => 'string',
+          'defailt' => 'none',
+        ],
+    ),
+    'render_callback' => 'msb_render_block_share',
+  ) );
+
 }
-add_action( 'enqueue_block_editor_assets', 'msb_enqueue_block_editor_assets' );
+add_action( 'init', 'msb_register_block_editor_scripts' );
 
 /**
  * Enqueue styles in the block editor too.
  */
 add_action( 'enqueue_block_editor_assets', 'msb_styles' );
-
-/**
- * Register our block for server-side rendering.
- */
-register_block_type( 'msb/share', array(
-  'attributes'      => array(
-      'title' => [
-        'type' => 'string',
-        'default' => __( 'Share', 'minimal-share-buttons' ),
-      ],
-      'align' => [
-        'type' => 'string',
-        'defailt' => 'none',
-      ],
-  ),
-  'render_callback' => 'msb_render_block_share',
-) );
 
 /**
  * Renders the `msb/share` block on server.

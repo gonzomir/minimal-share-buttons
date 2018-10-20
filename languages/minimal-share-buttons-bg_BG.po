@@ -1,38 +1,27 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Minimal Share Buttons\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-01 10:12+0000\n"
-"PO-Revision-Date: 2017-09-01 10:14+0000\n"
-"Last-Translator: gonzo <gonzo@greatgonzo.net>\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/minimal-share-"
+"buttons\n"
+"POT-Creation-Date: 2018-10-20T18:32:18+03:00\n"
+"PO-Revision-Date: 2018-10-20 18:33+0300\n"
+"Last-Translator: Milen Petrinski - Gonzo <gonzo@greatgonzo.net>\n"
 "Language-Team: Bulgarian\n"
-"Language: bg-BG\n"
-"Plural-Forms: nplurals=2; plural=n != 1\n"
+"Language: bg_BG\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Loco - https://localise.biz/"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Poedit 2.0.6\n"
 
-#: blocks/index.js:42
-msgid ""
-"Shows Minimal Shate Buttons widget with the buttons, set in the plugin "
-"settings"
-msgstr ""
-"Показва минималистични бутони за споделяне според настройките на "
-"разширението."
+#. Plugin Name of the plugin
+#: blocks/index.js:8
+msgid "Minimal Share Buttons"
+msgstr "Минималистични бутони за споделяне"
 
-#: blocks/index.js:44
-msgid "Share block settings"
-msgstr "Настройки на блока за споделяне"
-
-#: blocks/index.js:46
-msgid "Block title"
-msgstr "Заглавие на блока"
-
-#: blocks/index.js:56
-msgid "Share buttons will go here acording to plugin settings."
-msgstr ""
-"Тук ще се покажат бутоните за споделяне според настройките на разширението."
+#. Plugin URI of the plugin
+msgid "https://github.com/gonzomir/minimal-share-buttons"
+msgstr "https://github.com/gonzomir/minimal-share-buttons"
 
 #. Description of the plugin
 msgid ""
@@ -42,104 +31,104 @@ msgstr ""
 "Разширение за споделяне в социалните мрежи, което не шпионира потребителите "
 "ви и не забавя сайта ви."
 
-#. URI of the plugin
-msgid "https://github.com/gonzomir/minimal-share-buttons"
-msgstr ""
-
-#. Author URI of the plugin
-msgid "https://greatgonzo.net/"
-msgstr ""
-
-#: settings.php:12
-msgid "Social networks"
-msgstr "Социални мрежи"
-
-#: settings.php:21
-msgid "Select social networks"
-msgstr "Избор на социални мрежи"
-
-#: settings.php:35
-msgid "Display settings"
-msgstr "Настройки за показване"
-
-#. use $args' label_for to populate the id inside the callback
-#: settings.php:43
-msgid "Show buttons under content"
-msgstr "Показване на бутоните под съдържанието"
-
-#: settings.php:54
-msgid "Title of the section under content"
-msgstr "Заглавие на секцията за споделяне"
-
-#: settings.php:60 minimal-share-buttons.php:67
-msgid "Share this"
-msgstr "Споделяне"
-
-#: settings.php:79
-msgid "Select the social networks you wish your content to be shared on."
-msgstr "Избор на социалните мрежи в които да се споделя вашето съдържание."
-
-#: settings.php:86
-msgid "Settings that control the appearance of the buttons."
-msgstr "Настройки за показването на бутоните."
-
-#. use $args' label_for to populate the id inside the callback
-#: settings.php:113
-msgid "Facebook"
-msgstr "Фейсбук"
-
-#. use $args' label_for to populate the id inside the callback
-#: settings.php:114
-msgid "Twitter"
-msgstr "Туитър"
-
-#. use $args' label_for to populate the id inside the callback
-#: settings.php:115
-msgid "Google Plus"
-msgstr "Гугъл плюс"
-
-#. use $args' label_for to populate the id inside the callback
-#: settings.php:116
-msgid "LinkedIn"
-msgstr "ЛинкдИн"
-
-#: settings.php:159 settings.php:160
-msgid "Share Options"
-msgstr "Настройки за споделяне"
-
-#: settings.php:197
-msgid "Save Settings"
-msgstr "Запис на настройките"
-
-#: widget.php:10
-msgid "Share widget"
-msgstr "Джаджа за споделяне"
-
-#: widget.php:37
-msgid "Share on Facebook"
-msgstr "Споделяне във Фейсбук"
-
-#: widget.php:40
-msgid "Share on Twitter"
-msgstr "Споделяне в Туитър"
-
-#: widget.php:43
-msgid "Share on LinkedIn"
-msgstr "Споделяне в ЛинкдИн"
-
-#: widget.php:46
-msgid "Share on Google Plus"
-msgstr "Споделяне в Гугъл плюс"
-
-#: widget.php:71 blocks/index.php:20
-msgid "Share"
-msgstr "Споделяне"
-
-#. Name of the plugin
-#: blocks/index.js:11
-msgid "Minimal Share Buttons"
-msgstr "Минималистични бутони за споделяне"
-
 #. Author of the plugin
 msgid "Milen Petrinski - Gonzo"
 msgstr "Милен Петрински - Гонзо"
+
+#. Author URI of the plugin
+msgid "https://greatgonzo.net/"
+msgstr "https://greatgonzo.net/"
+
+#: socials.php:25
+msgid "Facebook"
+msgstr "Фейсбук"
+
+#: socials.php:26
+msgid "Share on Facebook"
+msgstr "Споделяне във Фейсбук"
+
+#: socials.php:30
+msgid "Twitter"
+msgstr "Туитър"
+
+#: socials.php:31
+msgid "Share on Twitter"
+msgstr "Споделяне в Туитър"
+
+#: socials.php:35
+msgid "Google Plus"
+msgstr "Гугъл плюс"
+
+#: socials.php:36
+msgid "Share on Google Plus"
+msgstr "Споделяне в Гугъл плюс"
+
+#: socials.php:40
+msgid "LinkedIn"
+msgstr "ЛинкдИн"
+
+#: socials.php:41
+msgid "Share on LinkedIn"
+msgstr "Споделяне в ЛинкдИн"
+
+#: settings.php:43
+msgid "Social networks"
+msgstr "Социални мрежи"
+
+#: settings.php:52
+msgid "Select social networks"
+msgstr "Избор на социални мрежи"
+
+#: settings.php:66
+msgid "Display settings"
+msgstr "Настройки за показване"
+
+#: settings.php:74
+msgid "Show buttons under content"
+msgstr "Показване на бутоните под съдържанието"
+
+#: settings.php:85
+msgid "Title of the section under content"
+msgstr "Заглавие на секцията за споделяне"
+
+#: settings.php:91 minimal-share-buttons.php:78
+msgid "Share this"
+msgstr "Споделяне"
+
+#: settings.php:106
+msgid "Select the social networks you wish your content to be shared on."
+msgstr "Избор на социалните мрежи в които да се споделя вашето съдържание."
+
+#: settings.php:113
+msgid "Settings that control the appearance of the buttons."
+msgstr "Настройки за показването на бутоните."
+
+#: settings.php:180 settings.php:181
+msgid "Share Options"
+msgstr "Настройки за споделяне"
+
+#: settings.php:213
+msgid "Save Settings"
+msgstr "Запис на настройките"
+
+#: widget.php:11
+msgid "Share widget"
+msgstr "Джаджа за споделяне"
+
+#: widget.php:67 blocks/index.php:37 blocks/index.php:56 blocks/index.js:20
+msgid "Share"
+msgstr "Споделяне"
+
+#: blocks/index.js:9
+msgid ""
+"Shows Minimal Shate Buttons widget with the buttons, set in the plugin "
+"settings"
+msgstr ""
+
+#: blocks/index.js:39
+msgid "Main Settings"
+msgstr "Основни настройки"
+
+#: blocks/index.js:42
+msgid "Title"
+msgstr "Заглавие"
