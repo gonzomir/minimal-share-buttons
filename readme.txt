@@ -1,7 +1,7 @@
 === Minimal Share Buttons ===
 Tags: facebook, share buttons, social media, social sharing, twitter, linkedin
-Tested up to: 4.9.6
-Stable tag: 0.6
+Tested up to: 5.0
+Stable tag: 1.0
 License: GPL3 or later
 License URI: https://www.gnu.org/licenses/gpl.html
 Contributors: gonzomir, adrian-roselli
@@ -19,6 +19,7 @@ Why choose Minimal Share Buttons before other similar plugins?
 * Doesn't spy on your users - the plugin doesn't load any thitd-party scripts that record your user's activity on your site, doesn't set or read any cookies.
 * GDPR-hasle-free - since the plugin doesn't leak personal information to third parties, this makes it easier for website owners to comply with the European privacy regulations.
 * Accessibility - the share links have labels, read by screen readers and visible for keyboard users.
+* Gutenberg and WordPress 5.0 ready - the plugin provides block that displays the share buttons so that authors can place them wherever they want in the post content.
 
 == Installation ==
 
@@ -26,13 +27,26 @@ Why choose Minimal Share Buttons before other similar plugins?
 1. Activate the plugin through the 'Plugins' screen in WordPress
 1. Use the Settings->Share Options screen to select which social networks you want your content to be shared on, and on which post types the share buttons to appear.
 
+== Usage ==
+
+There are three ways of displaying the share buttons on a post or page:
+
+1. Force them to display under the content of the post by checking the relevant checkboxes in the Display settings sections on the plugin settings screen.
+2. Add Share widget to the sidebar or another widget area.
+3. Use the Gutenberg block to add the share buttons whereever you want in the post content.
+
 == Changelog ==
+
+= 1.0 =
+* Gutenberg block.
+* Code style updates, output escaping, etc.
+* Localisation updates.
 
 = 0.6 =
 * Accessibility fix and enhancement thanks to @adrian-roselli
 
 = 0.5 =
-* Update Twitter share URL to include permalink of page/post
+* Update Twitter share URL to include permalink of page/post.
 * Add rel="noopener" to share links, nullify window.opener in javascript.
 
 = 0.4 =
