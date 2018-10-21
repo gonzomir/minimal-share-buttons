@@ -9,7 +9,7 @@ class MsbSettings {
   private static $instance;
 
   public static function get_instance() {
-    if (null === self::$instance) {
+    if ( null === self::$instance ) {
       self::$instance = new self();
     }
     return self::$instance;
@@ -92,29 +92,29 @@ class MsbSettings {
       )
     );
 
-
   }
 
-
   /**
-   * custom option and settings:
-   * callback functions
+   * Render description text from the social networks settings section.
    */
-
   public static function section_networks( $args ) {
     ?>
     <p><?php esc_html_e( 'Select the social networks you wish your content to be shared on.', 'minimal-share-buttons' ); ?></p>
     <?php
   }
 
-
+  /**
+   * Render description text from the display setings section.
+   */
   public static function section_display( $args ) {
     ?>
     <p><?php esc_html_e( 'Settings that control the appearance of the buttons.', 'minimal-share-buttons' ); ?></p>
     <?php
   }
 
-
+  /**
+   * Render checkbox field.
+   */
   public static function checkbox_field( $args ) {
 
     ?>
@@ -123,9 +123,10 @@ class MsbSettings {
 
   }
 
+  /**
+   * Render text field.
+   */
   public static function text_field( $args ) {
-
-    $options = get_option( 'msb_options' );
 
     ?>
     <input type="text" id="<?php echo esc_attr( $args['label_for'] ); ?>" name="<?php echo esc_attr( $args['label_for'] ); ?>" value="<?php echo isset( $args['value'] ) ? esc_attr( $args['value'] ) : ''; ?>" />
@@ -133,6 +134,9 @@ class MsbSettings {
 
   }
 
+  /**
+   * Render social networks selection fieldset.
+   */
   public static function socials_fieldset( $args ) {
 
     ?>
@@ -148,6 +152,9 @@ class MsbSettings {
 
   }
 
+  /**
+   * Render post types selection fieldset.
+   */
   public static function post_types_fieldset( $args ) {
 
     $pt_args = array(
@@ -163,8 +170,8 @@ class MsbSettings {
       <input type="hidden" name="msb_content_filter[none]" value="true" />
       <?php foreach( $post_types as $post_type ): ?>
       <p>
-        <input type="checkbox" id="msb_content_filter_<?php echo $post_type->name; ?>" name="msb_content_filter[<?php echo $post_type->name; ?>]" value="true" <?php echo ( isset( $args['value'][$post_type->name] ) && $args['value'][$post_type->name] ) ? 'checked' :  '' ; ?> />
-        <label for="msb_content_filter_<?php echo $post_type->name; ?>"><?php echo esc_html( $post_type->labels->name ); ?></label>
+        <input type="checkbox" id="msb_content_filter_<?php echo esc_attr( $post_type->name ); ?>" name="msb_content_filter[<?php echo esc_attr( $post_type->name ); ?>]" value="true" <?php echo ( isset( $args['value'][$post_type->name] ) && $args['value'][$post_type->name] ) ? 'checked' :  '' ; ?> />
+        <label for="msb_content_filter_<?php echo esc_attr( $post_type->name ); ?>"><?php echo esc_html( $post_type->labels->name ); ?></label>
       </p>
     <?php endforeach; ?>
     </fieldset>
@@ -172,7 +179,9 @@ class MsbSettings {
 
   }
 
-
+  /**
+   * Add submenu item to the Settings menu in WP admin.
+   */
   public static function options_page() {
     add_submenu_page(
       'options-general.php',

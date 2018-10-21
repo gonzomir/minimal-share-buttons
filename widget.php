@@ -4,13 +4,18 @@
  * Minimal Share Buttons widget
  */
 class minimal_share_buttons extends WP_Widget {
+
   /**
    * Constructor
    */
   function __construct() {
-    parent::__construct( 'minimal_share_buttons', $name = __('Share widget', 'minimal-share-buttons'), array(
-      'customize_selective_refresh' => true,
-    ) );
+    parent::__construct(
+      'minimal_share_buttons',
+      $name = __( 'Share widget', 'minimal-share-buttons' ),
+      array(
+        'customize_selective_refresh' => true,
+      )
+    );
   }
 
   /**
@@ -18,12 +23,13 @@ class minimal_share_buttons extends WP_Widget {
    */
   function widget( $args, $instance ) {
     global $post;
-    extract($args);
+    extract( $args );
 
     // Widget options
     if ( array_key_exists( 'title', $instance ) ) {
       $title = apply_filters( 'widget_title', $instance['title'] ); // Title
-    } else {
+    }
+    else {
       $title = '';
     }
 
@@ -46,7 +52,10 @@ class minimal_share_buttons extends WP_Widget {
 
     echo $after_widget;
   }
-  /** Widget control update */
+
+  /**
+   * Widget control update
+   */
   function update( $new_instance, $old_instance ) {
     $instance = $old_instance;
 
@@ -61,16 +70,16 @@ class minimal_share_buttons extends WP_Widget {
   function form( $instance ) {
     // instance exist? if not set defaults
     if ( $instance ) {
-      $title  = $instance['title'];
+      $title = $instance['title'];
     } else {
-        //These are our defaults
-      $title  = __('Share', 'minimal-share-buttons');
+      //These are our defaults
+      $title = __( 'Share', 'minimal-share-buttons' );
     }
 
     // The widget form ?>
     <p>
-      <label for="<?php echo $this->get_field_id('title'); ?>"><?php echo __( 'Title:' ); ?></label>
-      <input id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" class="widefat" />
+      <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php esc_html_e( 'Title:', 'minimal-share-buttons' ); ?></label>
+      <input id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" class="widefat" />
     </p>
 <?php
   }
