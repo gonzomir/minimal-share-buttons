@@ -3,7 +3,6 @@
 $generated_i18n_strings = array(
 	/* translators: Copyright (C) 2018 Milen Petrinski - Gonzo
 This file is distributed under the same license as the Minimal Share Buttons plugin. */
-,
 
 	/* Plugin Name of the plugin */
 	__( 'Minimal Share Buttons', 'minimal-share-buttons' ),
