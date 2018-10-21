@@ -135,10 +135,9 @@ class MsbSettings {
 
   public static function socials_fieldset( $args ) {
 
-    $msb_socials = MsbSocials::get_instance();
     ?>
     <fieldset>
-      <?php foreach( $msb_socials->socials as $social => $attributes ): ?>
+      <?php foreach( msb_get_socials() as $social => $attributes ): ?>
       <p>
         <input type="checkbox" id="msb_socials_<?php echo $social; ?>" name="msb_socials[<?php echo $social; ?>]" value="true" <?php echo ( isset( $args['value'][$social] ) && $args['value'][$social] ) ? 'checked' :  '' ; ?> />
         <label for="msb_socials_<?php echo $social; ?>"><?php echo esc_html( $attributes['field_label'] ); ?></label>

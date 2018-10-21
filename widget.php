@@ -33,11 +33,9 @@ class minimal_share_buttons extends WP_Widget {
     }
 
     $options = get_option( 'msb_socials', array( 'facebook' => false, 'twitter' => false, 'gplus' => false, 'linkedin' => false ) );
-
-    $msb_socials = MsbSocials::get_instance();
     ?>
     <p>
-      <?php foreach( $msb_socials->socials as $social => $attributes ): ?>
+      <?php foreach( msb_get_socials() as $social => $attributes ): ?>
         <?php if ( array_key_exists( $social, $options ) && $options[ $social ] ) : ?>
           <a href="<?php echo esc_url( sprintf( $attributes['share_url'], urlencode( get_permalink() ), urlencode( the_title_attribute( 'echo=0' ) ) ) ); ?>" target="_blank" class="minimal-share-button" aria-label="<?php echo esc_html( $attributes['button_label'] ); ?>" rel="noopener"><?php msb_icon($social . '-square', true); ?></a>
         <?php endif; ?>
