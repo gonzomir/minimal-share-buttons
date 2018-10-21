@@ -20,7 +20,7 @@ include( MSB_PLUGIN_BASE . 'settings.php' );
 include( MSB_PLUGIN_BASE . 'widget.php' );
 
 if ( function_exists( 'register_block_type' ) ) {
-  // Gutenberg is active.
+  // Block editor (Gutenberg) is active.
   include( MSB_PLUGIN_BASE . 'blocks/index.php' );
 }
 

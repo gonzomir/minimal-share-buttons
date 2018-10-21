@@ -30,9 +30,15 @@ function msb_register_block_editor_scripts() {
    * Pass already loaded translations to our JavaScript.
    * This happens _before_ our JavaScript runs, afterwards it's too late.
    */
+  if ( function_exists( 'gutenberg_get_jed_locale_data' ) ) {
+    $locale_data = gutenberg_get_jed_locale_data( 'minimal-share-buttons' );
+  }
+  else {
+    $locale_data = wp_get_jed_locale_data( 'minimal-share-buttons' );
+  }
   wp_add_inline_script(
     'msb-share-block',
-    'wp.i18n.setLocaleData(' . json_encode( gutenberg_get_jed_locale_data( 'minimal-share-buttons' ) ) . ', "minimal-share-buttons");',
+    'wp.i18n.setLocaleData(' . json_encode( $locale_data ) . ', "minimal-share-buttons");',
     'before'
   );
 
