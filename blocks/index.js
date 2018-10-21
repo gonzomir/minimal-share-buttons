@@ -5,8 +5,8 @@
 
   registerBlockType( 'msb/share', {
 
-    title: __( 'Minimal Share Buttons', 'minimal-share-buttons' ),
-    description: __( 'Shows Minimal Shate Buttons widget with the buttons, set in the plugin settings', 'minimal-share-buttons' ),
+    title: __( 'Share', 'minimal-share-buttons' ),
+    description: __( 'Shows Minimal Share Buttons widget with the buttons, set in the plugin settings.', 'minimal-share-buttons' ),
     icon: 'share',
     category: 'widgets',
 
@@ -25,7 +25,7 @@
       var isSelected = props.isSelected;
 
       return [
-        isSelected && (el( wp.editor.BlockControls, {key: "controls"},
+        isSelected && ( el( wp.editor.BlockControls, {key: "controls"},
           el( wp.editor.BlockAlignmentToolbar, {
             value: props.attributes.align,
             controls: ['left', 'center', 'right'],
@@ -59,5 +59,5 @@
       return null;
     },
 
-  } );
-} )();
+  });
+})();

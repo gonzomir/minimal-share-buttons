@@ -11,7 +11,7 @@ class minimal_share_buttons extends WP_Widget {
   function __construct() {
     parent::__construct(
       'minimal_share_buttons',
-      $name = __( 'Share widget', 'minimal-share-buttons' ),
+      $name = __( 'Share', 'minimal-share-buttons' ),
       array(
         'customize_selective_refresh' => true,
       )

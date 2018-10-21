@@ -32,7 +32,7 @@ function msb_register_block_editor_scripts() {
    */
   wp_add_inline_script(
     'msb-share-block',
-    'wp.i18n.setLocaleData(' . json_encode( gutenberg_get_jed_locale_data( 'minimal-share-buttons' ) ) . ');',
+    'wp.i18n.setLocaleData(' . json_encode( gutenberg_get_jed_locale_data( 'minimal-share-buttons' ) ) . ', "minimal-share-buttons");',
     'before'
   );
 
