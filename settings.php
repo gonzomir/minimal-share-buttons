@@ -167,13 +167,12 @@ class MsbSettings {
    */
   public static function post_types_fieldset( $args ) {
 
-    $pt_args = array(
-        'public' => true ,
-        '_builtin' => true
+    $post_types = get_post_types(
+      array(
+        'public' => true,
+      ),
+      'object'
     );
-    $output = 'object';
-    $operator = 'and';
-    $post_types = get_post_types( $pt_args , $output , $operator );
 
     ?>
     <fieldset>
