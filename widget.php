@@ -38,7 +38,17 @@ class minimal_share_buttons extends WP_Widget {
       echo $before_title . $title . $after_title;
     }
 
-    $options = get_option( 'msb_socials', array( 'facebook' => false, 'twitter' => false, 'gplus' => false, 'linkedin' => false ) );
+    $options = get_option(
+      'msb_socials',
+      array(
+        'facebook' => false,
+        'twitter' => false,
+        'linkedin' => false,
+        'pinterest' => false,
+        'reddit' => false,
+        'email' => false,
+      )
+    );
     ?>
     <p>
       <?php foreach( msb_get_socials() as $social => $attributes ): ?>

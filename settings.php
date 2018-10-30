@@ -45,7 +45,17 @@ class MsbSettings {
       'minimal-share-buttons'
     );
 
-    $socials = get_option( 'msb_socials', array( 'facebook' => false, 'twitter' => false, 'gplus' => false, 'linkedin' => false ) );
+    $socials = get_option(
+      'msb_socials',
+      array(
+        'facebook' => false,
+        'twitter' => false,
+        'linkedin' => false,
+        'pinterest' => false,
+        'reddit' => false,
+        'email' => false,
+      )
+    );
 
     add_settings_field(
       'msb_socials_facebook',
