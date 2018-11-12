@@ -24,8 +24,8 @@ Why choose Minimal Share Buttons before other similar plugins?
 == Installation ==
 
 1. Extract the zip file and upload the folder `minimal-share-buttons` to the `/wp-content/plugins` directory, or install the plugin through the WordPress plugins screen directly.
-1. Activate the plugin through the 'Plugins' screen in WordPress
-1. Use the Settings->Share Options screen to select which social networks you want your content to be shared on, and on which post types the share buttons to appear.
+2. Activate the plugin through the 'Plugins' screen in WordPress
+3. Use the Settings->Share Options screen to select which social networks you want your content to be shared on, and on which post types the share buttons to appear.
 
 == Usage ==
 
