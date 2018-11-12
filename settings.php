@@ -167,11 +167,21 @@ class MsbSettings {
    */
   public static function post_types_fieldset( $args ) {
 
+    $types_with_content = get_post_types_by_support( 'editor' );
+
     $post_types = get_post_types(
       array(
         'public' => true,
       ),
       'object'
+    );
+
+    $post_types = array_filter(
+      $post_types,
+      function( $type ) use ( $types_with_content ) {
+        return in_array( $type, $types_with_content );
+      },
+      ARRAY_FILTER_USE_KEY
     );
 
     ?>
