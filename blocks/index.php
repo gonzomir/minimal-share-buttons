@@ -32,15 +32,15 @@ function msb_register_block_editor_scripts() {
    */
   if ( function_exists( 'gutenberg_get_jed_locale_data' ) ) {
     $locale_data = gutenberg_get_jed_locale_data( 'minimal-share-buttons' );
+    wp_add_inline_script(
+      'msb-share-block',
+      'wp.i18n.setLocaleData(' . json_encode( $locale_data ) . ', "minimal-share-buttons");',
+      'before'
+    );
   }
-  else {
-    $locale_data = wp_get_jed_locale_data( 'minimal-share-buttons' );
+  else if ( function_exists( 'wp_set_script_translations' ) ) {
+    wp_set_script_translations( 'msb-share-block', 'minimal-share-buttons' );
   }
-  wp_add_inline_script(
-    'msb-share-block',
-    'wp.i18n.setLocaleData(' . json_encode( $locale_data ) . ', "minimal-share-buttons");',
-    'before'
-  );
 
   /*
    * Register our block for server-side rendering.
