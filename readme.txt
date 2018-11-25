@@ -1,7 +1,7 @@
 === Minimal Share Buttons ===
 Tags: facebook, share buttons, social media, social sharing, twitter, linkedin
 Tested up to: 5.0
-Stable tag: 1.0.1
+Stable tag: 1.1.0
 License: GPL3 or later
 License URI: https://www.gnu.org/licenses/gpl.html
 Contributors: gonzomir, adrian-roselli
@@ -36,6 +36,10 @@ There are three ways of displaying the share buttons on a post or page:
 3. Use the Gutenberg block to add the share buttons whereever you want in the post content.
 
 == Changelog ==
+
+= 1.1.0 =
+* Allow sharing of all public post types.
+* Add more social networks.
 
 = 1.0.1 =
 * Fix a fatal error in WordPress 5.0 RC.
