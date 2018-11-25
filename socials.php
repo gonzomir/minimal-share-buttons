@@ -16,6 +16,11 @@ function msb_get_socials(){
       'button_label' => __( 'Share on Twitter', 'minimal-share-buttons' ),
       'share_url' => 'https://twitter.com/intent/tweet?url=%1$s&text=%2$s',
     ),
+    'google-plus' => array(
+      'field_label' => __( 'Google Plus', 'minimal-share-buttons' ),
+      'button_label' => __( 'Share on Google Plus', 'minimal-share-buttons' ),
+      'share_url' => 'https://plus.google.com/share?url=%1$s&title=%2$s'
+    ),
     'linkedin' => array(
       'field_label' => __( 'LinkedIn', 'minimal-share-buttons' ),
       'button_label' => __( 'Share on LinkedIn', 'minimal-share-buttons' ),

@@ -50,6 +50,7 @@ class MsbSettings {
       array(
         'facebook' => false,
         'twitter' => false,
+        'google-plus' => false,
         'linkedin' => false,
         'pinterest' => false,
         'reddit' => false,

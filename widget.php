@@ -43,6 +43,7 @@ class minimal_share_buttons extends WP_Widget {
       array(
         'facebook' => false,
         'twitter' => false,
+        'google-plus' => false,
         'linkedin' => false,
         'pinterest' => false,
         'reddit' => false,
