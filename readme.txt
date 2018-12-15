@@ -2,6 +2,7 @@
 Tags: facebook, share buttons, social media, social sharing, twitter, linkedin
 Tested up to: 5.0
 Stable tag: 1.1.0
+Requires PHP: 5.6
 License: GPL3 or later
 License URI: https://www.gnu.org/licenses/gpl.html
 Contributors: gonzomir, adrian-roselli
