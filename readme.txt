@@ -1,7 +1,7 @@
 === Minimal Share Buttons ===
 Tags: facebook, share buttons, social media, social sharing, twitter, linkedin
-Tested up to: 5.0
-Stable tag: 1.1.0
+Tested up to: 5.0.1
+Stable tag: 1.2.0
 Requires PHP: 5.6
 License: GPL3 or later
 License URI: https://www.gnu.org/licenses/gpl.html
@@ -11,7 +11,7 @@ A social share plugin that doesn't spy on users and doesn't slow down you site.
 
 == Description ==
 
-Add simple share buttons under your posts or use the widget to add sharing to any widget area your theme provides. This plugin uses simple SVG icons for social network logos and small vanilla JavaScript to allow the user to share the current post or page. Share icons inherit their colours from the theme link colours to match the website design.
+Add simple share buttons under your posts, add share block in the new editor, or use the widget to add sharing to any widget area your theme provides. This plugin uses simple SVG icons for social network logos and small vanilla JavaScript to allow the user to share the current post or page. Share icons inherit their colours from the theme link colours to match the website design.
 
 Why choose Minimal Share Buttons before other similar plugins?
 
@@ -37,6 +37,10 @@ There are three ways of displaying the share buttons on a post or page:
 3. Use the Gutenberg block to add the share buttons whereever you want in the post content.
 
 == Changelog ==
+
+= 1.2.0 =
+* Refactor folder structure and apply WP coding standards.
+* Refactor JS, remove domready, load minified script, etc.
 
 = 1.1.0 =
 * Allow sharing of all public post types.
