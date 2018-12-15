@@ -24,38 +24,38 @@ if ( function_exists( 'register_block_type' ) ) {
 	include MSB_PLUGIN_BASE . 'blocks/index.php';
 }
 
-
 /**
  * Enqueue scripts for the frontend.
  */
 function msb_scripts() {
 
-	wp_register_script(
-		'svg4everybody',
-		plugins_url( 'assets/js/svg4everybody.legacy.min.js', __FILE__ ),
-		[],
-		filemtime( MSB_PLUGIN_BASE . 'assets/js/svg4everybody.legacy.min.js' )
-	);
-	wp_enqueue_script( 'svg4everybody' );
-
-	wp_register_script(
-		'domready',
-		plugins_url( 'assets/js/ready.min.js', __FILE__ ),
-		[],
-		filemtime( MSB_PLUGIN_BASE . 'assets/js/ready.min.js' )
-	);
-	wp_enqueue_script( 'domready' );
-
-	wp_register_script(
-		'msb-script',
-		plugins_url( 'assets/js/minimal-share-buttons.js', __FILE__ ),
-		[
+	if ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) {
+		// When SCRIPT_DEBUG is true load unminified version of script.
+		wp_register_script(
 			'svg4everybody',
-			'domready',
-		],
-		filemtime( MSB_PLUGIN_BASE . 'assets/js/minimal-share-buttons.js' )
-	);
-	wp_enqueue_script( 'msb-script' );
+			plugins_url( 'assets/js/svg4everybody.legacy.min.js', __FILE__ ),
+			[],
+			filemtime( MSB_PLUGIN_BASE . 'assets/js/svg4everybody.legacy.min.js' )
+		);
+
+		wp_register_script(
+			'msb-script',
+			plugins_url( 'assets/js/minimal-share-buttons.js', __FILE__ ),
+			[ 'svg4everybody' ],
+			filemtime( MSB_PLUGIN_BASE . 'assets/js/minimal-share-buttons.js' )
+		);
+		wp_enqueue_script( 'msb-script' );
+
+	} else {
+		// We have minified script too.
+		wp_register_script(
+			'msb-script',
+			plugins_url( 'assets/js/msb.min.js', __FILE__ ),
+			[],
+			filemtime( MSB_PLUGIN_BASE . 'assets/js/minimal-share-buttons.js' )
+		);
+		wp_enqueue_script( 'msb-script' );
+	}
 }
 add_action( 'wp_enqueue_scripts', 'msb_scripts' );
 
@@ -76,6 +76,9 @@ add_action( 'wp_enqueue_scripts', 'msb_styles' );
 
 /**
  * Add link to settings in plugins list item actions.
+ *
+ * @param string $links Action links in plugins list table.
+ * @return string Modified action links.
  */
 function msb_add_settings_link( $links ) {
 		$settings_link = sprintf(
@@ -91,7 +94,6 @@ add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'msb_add_setti
  * Show share widget after post content.
  *
  * @param string $content Post content.
- *
  * @return string
  */
 function msb_content_filter( $content ) {
