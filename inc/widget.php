@@ -19,22 +19,25 @@ class Minimal_Share_Buttons extends WP_Widget {
 	}
 
 	/**
-	 * This is the Widget
+	 * Render the widget.
+	 *
+	 * @param array $args Args array, passed from dynamic_sidebar().
+	 * @param array $instance Instance arguments from widget settings.
+	 * @return void
 	 */
 	public function widget( $args, $instance ) {
 		global $post;
-		extract( $args );
 
-		// Widget options
+		// Widget options.
 		if ( array_key_exists( 'title', $instance ) ) {
-			$title = apply_filters( 'widget_title', $instance['title'] ); // Title
+			$title = apply_filters( 'widget_title', $instance['title'] ); // Title.
 		} else {
 			$title = '';
 		}
 
-		echo $before_widget;
+		echo $$args['before_widget']; // WPCS: XSS OK.
 		if ( $title ) {
-			echo $before_title . $title . $after_title;
+			echo $args['before_title'] . $title . $args['after_title']; // WPCS: XSS OK.
 		}
 
 		$options = get_option(
@@ -60,33 +63,40 @@ class Minimal_Share_Buttons extends WP_Widget {
 		</p>
 		<?php
 
-		echo $after_widget;
+		echo $args['after_widget']; // WPCS: XSS OK.
 	}
 
 	/**
 	 * Widget control update
+	 *
+	 * @param array $new_instance New widget setttings.
+	 * @param array $old_instance Old widget setings.
+	 * @return array Widget setings.
 	 */
 	public function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
 
-		$instance['title']  = strip_tags( $new_instance['title'] );
+		$instance['title'] = sanitize_text_field( $new_instance['title'] );
 
 		return $instance;
 	}
 
 	/**
-	 * Widget settings
+	 * Render widget settings form.
+	 *
+	 * @param array $instance Current widget setttings.
+	 * @return void
 	 */
 	public function form( $instance ) {
-		// instance exist? if not set defaults
+		// Instance exist? If not set defaults.
 		if ( $instance ) {
 			$title = $instance['title'];
 		} else {
-			//These are our defaults
+			// These are our defaults.
 			$title = __( 'Share', 'minimal-share-buttons' );
 		}
 
-		// The widget form
+		// Render the widget form.
 		?>
 		<p>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'minimal-share-buttons' ); ?></label>
@@ -96,7 +106,6 @@ class Minimal_Share_Buttons extends WP_Widget {
 	}
 
 }
-add_action( 'widgets_init', 'minimal_share_buttons_widget' );
 
 /**
  * Register our widget with WordPress.
@@ -104,3 +113,4 @@ add_action( 'widgets_init', 'minimal_share_buttons_widget' );
 function minimal_share_buttons_widget() {
 	return register_widget( 'minimal_share_buttons' );
 }
+add_action( 'widgets_init', 'minimal_share_buttons_widget' );

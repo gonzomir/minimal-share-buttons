@@ -1,4 +1,5 @@
 <?php
+
 /*
 Plugin Name: Minimal Share Buttons
 Plugin URI: https://github.com/gonzomir/minimal-share-buttons
@@ -35,14 +36,16 @@ function msb_scripts() {
 			'svg4everybody',
 			plugins_url( 'assets/js/svg4everybody.legacy.min.js', __FILE__ ),
 			[],
-			filemtime( MSB_PLUGIN_BASE . 'assets/js/svg4everybody.legacy.min.js' )
+			filemtime( MSB_PLUGIN_BASE . 'assets/js/svg4everybody.legacy.min.js' ),
+			false
 		);
 
 		wp_register_script(
 			'msb-script',
 			plugins_url( 'assets/js/minimal-share-buttons.js', __FILE__ ),
 			[ 'svg4everybody' ],
-			filemtime( MSB_PLUGIN_BASE . 'assets/js/minimal-share-buttons.js' )
+			filemtime( MSB_PLUGIN_BASE . 'assets/js/minimal-share-buttons.js' ),
+			false
 		);
 		wp_enqueue_script( 'msb-script' );
 
@@ -52,7 +55,8 @@ function msb_scripts() {
 			'msb-script',
 			plugins_url( 'assets/js/msb.min.js', __FILE__ ),
 			[],
-			filemtime( MSB_PLUGIN_BASE . 'assets/js/minimal-share-buttons.js' )
+			filemtime( MSB_PLUGIN_BASE . 'assets/js/minimal-share-buttons.js' ),
+			false
 		);
 		wp_enqueue_script( 'msb-script' );
 	}
@@ -157,8 +161,8 @@ add_action( 'loop_start', 'msb_content_filter_init' );
  */
 function msb_init() {
 
-	// Make plugin available for translation
-	// Translations can be filed in the /languages/ directory
+	// Make plugin available for translation.
+	// Translations can be filed in the /languages/ directory.
 	load_plugin_textdomain( 'minimal-share-buttons', false, basename( dirname( __FILE__ ) ) . '/languages/' );
 
 }
@@ -178,6 +182,10 @@ register_uninstall_hook( __FILE__, 'msb_uninstall' );
 
 /**
  * SVG icon helper.
+ *
+ * @param string  $icon Icon name.
+ * @param boolean $echo Echo the markup if true.
+ * @return string SVG icon markup.
  */
 function msb_icon( $icon, $echo = true ) {
 	$icon = apply_filters( 'msb_icon_name', 'icon-' . $icon );
@@ -187,7 +195,7 @@ function msb_icon( $icon, $echo = true ) {
 		esc_url( $sprite_url . '#' . $icon )
 	);
 	if ( $echo ) {
-		echo $html;
+		echo $html; // WPCS: XSS OK.
 	}
 	return $html;
 }

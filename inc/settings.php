@@ -1,13 +1,22 @@
 <?php
 
 /**
- * custom option and settings
+ * Custom option and settings
  */
-
 class MsbSettings {
 
+	/**
+	 * Holds the class instance to emulate singleton.
+	 *
+	 * @var object
+	 */
 	private static $instance;
 
+	/**
+	 * Emulate singleton.
+	 *
+	 * @return object MsbSettings class instance.
+	 */
 	public static function get_instance() {
 		if ( null === self::$instance ) {
 			self::$instance = new self();
@@ -15,25 +24,38 @@ class MsbSettings {
 		return self::$instance;
 	}
 
+	/**
+	 * Initialize class.
+	 */
 	public static function init() {
 		$self = self::get_instance();
 		add_action( 'wp_loaded', [ $self, 'load' ] );
 	}
 
+	/**
+	 * Add admin actions to setup plugin settings.
+	 *
+	 * @return void
+	 */
 	public function load() {
 
 		/**
-		 * register our msb_settings_init to the admin_init action hook
+		 * Register our msb_settings_init to the admin_init action hook.
 		 */
 		add_action( 'admin_init', [ $this, 'settings' ] );
 
 		/**
-		 * register our msb_options_page to the admin_menu action hook
+		 * Register our msb_options_page to the admin_menu action hook.
 		 */
 		add_action( 'admin_menu', [ $this, 'options_page' ] );
 
 	}
 
+	/**
+	 * Register settings section and options.
+	 *
+	 * @return void
+	 */
 	public function settings() {
 
 		register_setting( 'minimal-share-buttons', 'msb_socials' );
@@ -114,6 +136,9 @@ class MsbSettings {
 
 	/**
 	 * Render description text from the social networks settings section.
+	 *
+	 * @param array $args Settings section arguments.
+	 * @return void
 	 */
 	public static function section_networks( $args ) {
 		?>
@@ -123,6 +148,9 @@ class MsbSettings {
 
 	/**
 	 * Render description text from the display setings section.
+	 *
+	 * @param array $args Settings section arguments.
+	 * @return void
 	 */
 	public static function section_display( $args ) {
 		?>
@@ -132,6 +160,9 @@ class MsbSettings {
 
 	/**
 	 * Render checkbox field.
+	 *
+	 * @param array $args Field arguments.
+	 * @return void
 	 */
 	public static function checkbox_field( $args ) {
 
@@ -143,6 +174,9 @@ class MsbSettings {
 
 	/**
 	 * Render text field.
+	 *
+	 * @param array $args Field arguments.
+	 * @return void
 	 */
 	public static function text_field( $args ) {
 
@@ -154,6 +188,9 @@ class MsbSettings {
 
 	/**
 	 * Render social networks selection fieldset.
+	 *
+	 * @param array $args Field arguments.
+	 * @return void
 	 */
 	public static function socials_fieldset( $args ) {
 
@@ -161,7 +198,7 @@ class MsbSettings {
 		<fieldset>
 			<?php foreach ( msb_get_socials() as $social => $attributes ) : ?>
 			<p>
-				<input type="checkbox" id="msb_socials_<?php echo esc_attr( $social ); ?>" name="msb_socials[<?php echo esc_attr( $social ); ?>]" value="true" <?php echo ( isset( $args['value'][$social] ) && $args['value'][$social] ) ? 'checked' : ''; ?> />
+				<input type="checkbox" id="msb_socials_<?php echo esc_attr( $social ); ?>" name="msb_socials[<?php echo esc_attr( $social ); ?>]" value="true" <?php echo ( isset( $args['value'][ $social ] ) && $args['value'][ $social ] ) ? 'checked' : ''; ?> />
 				<label for="msb_socials_<?php echo esc_attr( $social ); ?>"><?php echo esc_html( $attributes['field_label'] ); ?></label>
 			</p>
 			<?php endforeach; ?>
@@ -172,6 +209,9 @@ class MsbSettings {
 
 	/**
 	 * Render post types selection fieldset.
+	 *
+	 * @param array $args Field arguments.
+	 * @return void
 	 */
 	public static function post_types_fieldset( $args ) {
 
@@ -187,7 +227,7 @@ class MsbSettings {
 		$post_types = array_filter(
 			$post_types,
 			function( $type ) use ( $types_with_content ) {
-				return in_array( $type, $types_with_content );
+				return in_array( $type, $types_with_content, true );
 			},
 			ARRAY_FILTER_USE_KEY
 		);
@@ -197,7 +237,7 @@ class MsbSettings {
 			<input type="hidden" name="msb_content_filter[none]" value="true" />
 			<?php foreach ( $post_types as $post_type ) : ?>
 			<p>
-				<input type="checkbox" id="msb_content_filter_<?php echo esc_attr( $post_type->name ); ?>" name="msb_content_filter[<?php echo esc_attr( $post_type->name ); ?>]" value="true" <?php echo ( isset( $args['value'][$post_type->name] ) && $args['value'][$post_type->name] ) ? 'checked' : ''; ?> />
+				<input type="checkbox" id="msb_content_filter_<?php echo esc_attr( $post_type->name ); ?>" name="msb_content_filter[<?php echo esc_attr( $post_type->name ); ?>]" value="true" <?php echo ( isset( $args['value'][ $post_type->name ] ) && $args['value'][ $post_type->name ] ) ? 'checked' : ''; ?> />
 				<label for="msb_content_filter_<?php echo esc_attr( $post_type->name ); ?>"><?php echo esc_html( $post_type->labels->name ); ?></label>
 			</p>
 		<?php endforeach; ?>
@@ -208,6 +248,8 @@ class MsbSettings {
 
 	/**
 	 * Add submenu item to the Settings menu in WP admin.
+	 *
+	 * @return void
 	 */
 	public static function options_page() {
 		add_submenu_page(
@@ -222,16 +264,18 @@ class MsbSettings {
 
 	/**
 	 * Render settings page
+	 *
+	 * @return void
 	 */
 	public static function options_page_html() {
 
-		// check user capabilities
+		// Check user capabilities.
 		if ( ! current_user_can( 'manage_options' ) ) {
 			return;
 		}
 
-		// show error/update messages
-		// Looks like WordPress sets the messages automatically
+		// Show error/update messages.
+		// Looks like WordPress sets the messages automatically.
 		settings_errors( 'msb_messages' );
 
 		?>
@@ -239,12 +283,12 @@ class MsbSettings {
 			<h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
 			<form action="options.php" method="post">
 				<?php
-				// output security fields for the registered setting "minimal-share-buttons"
+				// Output security fields for the registered setting "minimal-share-buttons".
 				settings_fields( 'minimal-share-buttons' );
-				// output setting sections and their fields
-				// (sections are registered for "minimal-share-buttons", each field is registered to a specific section)
+				// Output setting sections and their fields.
+				// Sections are registered for "minimal-share-buttons", each field is registered to a specific section.
 				do_settings_sections( 'minimal-share-buttons' );
-				// output save settings button
+				// Output save settings button.
 				submit_button( __( 'Save Settings', 'minimal-share-buttons' ) );
 				?>
 			</form>

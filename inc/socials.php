@@ -2,6 +2,8 @@
 
 /**
  * Returns the list of available social networks.
+ *
+ * @return array Array of associative arrays describing social networks available for sharing.
  */
 function msb_get_socials() {
 

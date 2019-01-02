@@ -1,9 +1,4 @@
 <?php
-/**
- * `msb/share` block.
- *
- * @package minimal-share-buttons
- */
 
 /**
  * Registers block scripts so that they can be enqueued through Gutenberg in
@@ -23,7 +18,8 @@ function msb_register_block_editor_scripts() {
 			'wp-i18n',
 			'wp-element',
 		],
-		filemtime( plugin_dir_path( __FILE__ ) . 'index.js' )
+		filemtime( plugin_dir_path( __FILE__ ) . 'index.js' ),
+		true
 	);
 
 	/*
@@ -48,7 +44,7 @@ function msb_register_block_editor_scripts() {
 		'msb/share',
 		[
 			'editor_script' => 'msb-share-block',
-			'editor_style' => 'msb-share-block',
+			'editor_style' => 'msb-style',
 			'attributes' => [
 				'title' => [
 					'type' => 'string',
@@ -104,4 +100,3 @@ function msb_render_block_share( $attributes ) {
 
 	return preg_replace( '/[\n\r]+/i', ' ', $block_content );
 }
-
