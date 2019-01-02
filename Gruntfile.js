@@ -37,23 +37,12 @@ module.exports = function(grunt) {
           'assets/images/icons.svg': ['assets/images/icons/*.svg'],
         }
       }
-    },
-    svg2png: {
-      dist: {
-        files: [{
-          flatten: true,
-          cwd: 'assets/images/',
-          src: ['icons/*.svg'],
-          dest: 'assets/images/'
-        }]
-      }
     }
   });
 
   // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-svgstore');
-  grunt.loadNpmTasks('grunt-svg2png');
 
   // Default task.
   grunt.registerTask('default', ['uglify', 'svgstore']);
