@@ -28,18 +28,6 @@ class Minimal_Share_Buttons extends WP_Widget {
 	public function widget( $args, $instance ) {
 		global $post;
 
-		// Widget options.
-		if ( array_key_exists( 'title', $instance ) ) {
-			$title = apply_filters( 'widget_title', $instance['title'] ); // Title.
-		} else {
-			$title = '';
-		}
-
-		echo $$args['before_widget']; // WPCS: XSS OK.
-		if ( $title ) {
-			echo $args['before_title'] . $title . $args['after_title']; // WPCS: XSS OK.
-		}
-
 		$options = get_option(
 			'msb_socials',
 			[
@@ -52,14 +40,47 @@ class Minimal_Share_Buttons extends WP_Widget {
 				'email' => false,
 			]
 		);
+
+		$socials = array_filter(
+			msb_get_socials(),
+			function( $social ) use ( $options ) {
+				return ! empty( $options[ $social ] );
+			},
+			ARRAY_FILTER_USE_KEY
+		);
+
+		// Bail if nothing to show.
+		if ( empty( $socials ) && ! current_user_can( 'manage_options' ) ) {
+			return;
+		}
+
+		// Widget options.
+		if ( array_key_exists( 'title', $instance ) ) {
+			$title = apply_filters( 'widget_title', $instance['title'] ); // Title.
+		} else {
+			$title = '';
+		}
+
+		echo $args['before_widget']; // WPCS: XSS OK.
+		if ( $title ) {
+			echo $args['before_title'] . $title . $args['after_title']; // WPCS: XSS OK.
+		}
+
 		?>
 		<p>
-			<?php foreach ( msb_get_socials() as $social => $attributes ) : ?>
-				<?php if ( array_key_exists( $social, $options ) && $options[ $social ] ) : ?>
+			<?php if ( empty( $socials ) ) : ?>
+				<?php
+				printf(
+					/* translators: %s is settings page address */
+					__( 'To configure sharing options <a href="%s">go to the settings page</a>.', 'minila-share-buttons' ),
+					esc_url( admin_url( 'options-general.php?page=minimal-share-buttons' ) )
+				);
+				?>
+			<?php else : ?>
+				<?php foreach ( $socials as $social => $attributes ) : ?>
 					<a href="<?php echo esc_url( sprintf( $attributes['share_url'], rawurlencode( get_permalink() ), rawurlencode( the_title_attribute( 'echo=0' ) ) ) ); ?>" target="_blank" class="minimal-share-button" aria-label="<?php echo esc_html( $attributes['button_label'] ); ?>" rel="noopener"><?php msb_icon( $social . '-square', true ); ?></a>
-				<?php endif; ?>
-
-			<?php endforeach; ?>
+				<?php endforeach; ?>
+			<?php endif; ?>
 		</p>
 		<?php
 
