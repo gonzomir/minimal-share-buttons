@@ -1,13 +1,13 @@
 === Minimal Share Buttons ===
 Tags: facebook, share buttons, social media, social sharing, twitter, linkedin
-Tested up to: 5.0.1
-Stable tag: 1.2.0
+Tested up to: 5.2.1
+Stable tag: 1.3.0
 Requires PHP: 5.6
 License: GPL3 or later
 License URI: https://www.gnu.org/licenses/gpl.html
 Contributors: gonzomir, adrian-roselli
 
-A social share plugin that doesn't spy on users and doesn't slow down you site.
+A social share plugin that doesn't spy on users and doesn't slow down your site.
 
 == Description ==
 
@@ -15,18 +15,18 @@ Add simple share buttons under your posts, add share block in the new editor, or
 
 Why choose Minimal Share Buttons before other similar plugins?
 
-* Minimal and elegant look that blends with your theme (tested with all latest default WordPress themes as well as with some other popular themes)
+* Minimal and elegant look that blends with your theme (tested with all latest default WordPress themes as well as with some other popular themes).
 * Minimal impact on your site's performance - the plugin loads only a small SVG file with the icons, less than 1k CSS and 3.5к unminified and uncompressed JavaScript - most of it to make SVG icons work in old browsers.
 * Doesn't spy on your users - the plugin doesn't load any thitd-party scripts that record your user's activity on your site, doesn't set or read any cookies.
 * GDPR-hasle-free - since the plugin doesn't leak personal information to third parties, this makes it easier for website owners to comply with the European privacy regulations.
-* Accessibility - the share links have labels, read by screen readers and visible for keyboard users.
+* Accessibility - the share links have labels, read by screen readers, and visible for keyboard users.
 * Gutenberg and WordPress 5.0 ready - the plugin provides block that displays the share buttons so that authors can place them wherever they want in the post content.
 
 == Installation ==
 
 1. Extract the zip file and upload the folder `minimal-share-buttons` to the `/wp-content/plugins` directory, or install the plugin through the WordPress plugins screen directly.
 2. Activate the plugin through the 'Plugins' screen in WordPress
-3. Use the Settings->Share Options screen to select which social networks you want your content to be shared on, and on which post types the share buttons to appear.
+3. Use the Settings -> Share Options screen to select which social networks you want your content to be shared on, and on which post types the share buttons to appear.
 
 == Usage ==
 
@@ -37,6 +37,10 @@ There are three ways of displaying the share buttons on a post or page:
 3. Use the Gutenberg block to add the share buttons whereever you want in the post content.
 
 == Changelog ==
+
+= 1.3.0 =
+* Don't display the widget if no sharing options are set.
+* Display a guiding message to admins when no sharing options are set.
 
 = 1.2.0 =
 * Refactor folder structure and apply WP coding standards.
