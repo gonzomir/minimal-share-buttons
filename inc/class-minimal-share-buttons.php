@@ -127,11 +127,3 @@ class Minimal_Share_Buttons extends WP_Widget {
 	}
 
 }
-
-/**
- * Register our widget with WordPress.
- */
-function minimal_share_buttons_widget() {
-	return register_widget( 'minimal_share_buttons' );
-}
-add_action( 'widgets_init', 'minimal_share_buttons_widget' );

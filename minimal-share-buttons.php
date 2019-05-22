@@ -18,7 +18,7 @@ define( 'MSB_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
 require MSB_PLUGIN_BASE . 'inc/socials.php';
 require MSB_PLUGIN_BASE . 'inc/settings.php';
-require MSB_PLUGIN_BASE . 'inc/widget.php';
+require MSB_PLUGIN_BASE . 'inc/class-minimal-share-buttons.php';
 
 if ( function_exists( 'register_block_type' ) ) {
 	// Block editor (Gutenberg) is active.
@@ -86,13 +86,22 @@ add_action( 'wp_enqueue_scripts', 'msb_styles' );
  */
 function msb_add_settings_link( $links ) {
 		$settings_link = sprintf(
-			'<a href="options-general.php?page=minimal-share-buttons">%1$s</a>',
+			'<a href="%1$s">%2$s</a>',
+			esc_url( admin_url( 'options-general.php?page=minimal-share-buttons' ) ),
 			esc_html__( 'Settings', 'minimal-share-buttons' )
 		);
 		array_unshift( $links, $settings_link );
 		return $links;
 }
 add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'msb_add_settings_link' );
+
+/**
+ * Register our widget with WordPress.
+ */
+function minimal_share_buttons_widget() {
+	return register_widget( 'minimal_share_buttons' );
+}
+add_action( 'widgets_init', 'minimal_share_buttons_widget' );
 
 /**
  * Show share widget after post content.
@@ -118,7 +127,6 @@ function msb_content_filter( $content ) {
 	$content .= $output;
 
 	return $content;
-
 }
 
 /**
