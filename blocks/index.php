@@ -85,8 +85,8 @@ function msb_render_block_share( $attributes ) {
 	$align = array_key_exists( 'align', $attributes ) ? $attributes['align'] : 'none';
 
 	$widget_args = [
-		'before_widget' => '<aside class="msb-container align' . $align . '">',
-		'after_widget'  => '</aside>',
+		'before_widget' => '<div class="msb-container align' . $align . '">',
+		'after_widget'  => '</div>',
 		'before_title'  => '<h2>',
 		'after_title'   => '</h2>',
 	];

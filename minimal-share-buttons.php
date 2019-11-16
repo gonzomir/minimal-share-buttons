@@ -112,8 +112,8 @@ add_action( 'widgets_init', 'minimal_share_buttons_widget' );
 function msb_content_filter( $content ) {
 
 	$widget_args = [
-		'before_widget' => '<aside class="msb-container">',
-		'after_widget'  => '</aside>',
+		'before_widget' => '<div class="msb-container">',
+		'after_widget'  => '</div>',
 		'before_title'  => '<h2>',
 		'after_title'   => '</h2>',
 	];
