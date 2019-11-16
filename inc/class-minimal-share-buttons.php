@@ -72,7 +72,7 @@ class Minimal_Share_Buttons extends WP_Widget {
 				<?php
 				printf(
 					/* translators: %s is settings page address */
-					__( 'To configure sharing options <a href="%s">go to the settings page</a>.', 'minila-share-buttons' ),
+					__( 'To configure sharing options <a href="%s">go to the settings page</a>.', 'minila-share-buttons' ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 					esc_url( admin_url( 'options-general.php?page=minimal-share-buttons' ) )
 				);
 				?>
