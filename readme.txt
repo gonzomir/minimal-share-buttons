@@ -1,7 +1,7 @@
 === Minimal Share Buttons ===
 Tags: facebook, share buttons, social media, social sharing, twitter, linkedin
-Tested up to: 5.2.1
-Stable tag: 1.3.0
+Tested up to: 5.3
+Stable tag: 1.3.1
 Requires PHP: 5.6
 License: GPL3 or later
 License URI: https://www.gnu.org/licenses/gpl.html
@@ -37,6 +37,9 @@ There are three ways of displaying the share buttons on a post or page:
 3. Use the Gutenberg block to add the share buttons whereever you want in the post content.
 
 == Changelog ==
+
+= 1.3.1 =
+* Change default container element to `div`.
 
 = 1.3.0 =
 * Don't display the widget if no sharing options are set.
