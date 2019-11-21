@@ -1,17 +1,17 @@
-# Copyright (C) 2018 Milen Petrinski - Gonzo
+# Copyright (C) 2019 Milen Petrinski - Gonzo
 # This file is distributed under the same license as the Minimal Share Buttons plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Minimal Share Buttons 1.1.0\n"
+"Project-Id-Version: Minimal Share Buttons 1.3.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/minimal-share-buttons\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2018-11-25T23:48:44+02:00\n"
-"PO-Revision-Date: 2018-11-25T23:48:44+02:00\n"
-"X-Generator: WP-CLI 2.0.1\n"
+"POT-Creation-Date: 2019-11-21T14:03:49+02:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: minimal-share-buttons\n"
 
 #. Plugin Name of the plugin
@@ -34,119 +34,119 @@ msgstr ""
 msgid "https://greatgonzo.net/"
 msgstr ""
 
-#: socials.php:10
-msgid "Facebook"
-msgstr ""
-
-#: socials.php:11
-msgid "Share on Facebook"
-msgstr ""
-
-#: socials.php:15
-msgid "Twitter"
-msgstr ""
-
-#: socials.php:16
-msgid "Share on Twitter"
-msgstr ""
-
-#: socials.php:20
-msgid "Google Plus"
-msgstr ""
-
-#: socials.php:21
-msgid "Share on Google Plus"
-msgstr ""
-
-#: socials.php:25
-msgid "LinkedIn"
-msgstr ""
-
-#: socials.php:26
-msgid "Share on LinkedIn"
-msgstr ""
-
-#: socials.php:30
-msgid "Pinterest"
-msgstr ""
-
-#: socials.php:31
-msgid "Share on Pinterest"
-msgstr ""
-
-#: socials.php:35
-msgid "Reddit"
-msgstr ""
-
-#: socials.php:36
-msgid "Share on Reddit"
-msgstr ""
-
-#: socials.php:40
-msgid "Email"
-msgstr ""
-
-#: socials.php:41
-msgid "Share by email"
-msgstr ""
-
-#: settings.php:43
-msgid "Social networks"
-msgstr ""
-
-#: settings.php:63
-msgid "Select social networks"
-msgstr ""
-
-#: settings.php:77
-msgid "Display settings"
-msgstr ""
-
-#: settings.php:85
-msgid "Show buttons under content"
-msgstr ""
-
-#: settings.php:96
-msgid "Title of the section under content"
-msgstr ""
-
-#: settings.php:102
-#: minimal-share-buttons.php:108
-msgid "Share this"
-msgstr ""
-
-#: settings.php:113
-msgid "Select the social networks you wish your content to be shared on."
-msgstr ""
-
-#: settings.php:122
-msgid "Settings that control the appearance of the buttons."
-msgstr ""
-
-#: settings.php:208
-#: settings.php:209
-msgid "Share Options"
-msgstr ""
-
-#: settings.php:241
-msgid "Save Settings"
-msgstr ""
-
-#: minimal-share-buttons.php:85
-msgid "Settings"
-msgstr ""
-
-#: widget.php:14
-#: widget.php:87
-#: blocks/index.php:54
-#: blocks/index.php:81
+#: blocks/index.php:51
+#: blocks/index.php:79
+#: inc/class-minimal-share-buttons.php:14
+#: inc/class-minimal-share-buttons.php:117
 #: blocks/index.js:8
 #: blocks/index.js:20
 msgid "Share"
 msgstr ""
 
-#: widget.php:92
+#: inc/class-minimal-share-buttons.php:123
 msgid "Title:"
+msgstr ""
+
+#: inc/settings.php:65
+msgid "Social networks"
+msgstr ""
+
+#: inc/settings.php:85
+msgid "Select social networks"
+msgstr ""
+
+#: inc/settings.php:99
+msgid "Display settings"
+msgstr ""
+
+#: inc/settings.php:114
+msgid "Show buttons under content"
+msgstr ""
+
+#: inc/settings.php:125
+msgid "Title of the section under content"
+msgstr ""
+
+#: inc/settings.php:131
+#: minimal-share-buttons.php:121
+msgid "Share this"
+msgstr ""
+
+#: inc/settings.php:145
+msgid "Select the social networks you wish your content to be shared on."
+msgstr ""
+
+#: inc/settings.php:157
+msgid "Settings that control the appearance of the buttons."
+msgstr ""
+
+#: inc/settings.php:257
+#: inc/settings.php:258
+msgid "Share Options"
+msgstr ""
+
+#: inc/settings.php:292
+msgid "Save Settings"
+msgstr ""
+
+#: inc/socials.php:12
+msgid "Facebook"
+msgstr ""
+
+#: inc/socials.php:13
+msgid "Share on Facebook"
+msgstr ""
+
+#: inc/socials.php:17
+msgid "Twitter"
+msgstr ""
+
+#: inc/socials.php:18
+msgid "Share on Twitter"
+msgstr ""
+
+#: inc/socials.php:22
+msgid "Google Plus"
+msgstr ""
+
+#: inc/socials.php:23
+msgid "Share on Google Plus"
+msgstr ""
+
+#: inc/socials.php:27
+msgid "LinkedIn"
+msgstr ""
+
+#: inc/socials.php:28
+msgid "Share on LinkedIn"
+msgstr ""
+
+#: inc/socials.php:32
+msgid "Pinterest"
+msgstr ""
+
+#: inc/socials.php:33
+msgid "Share on Pinterest"
+msgstr ""
+
+#: inc/socials.php:37
+msgid "Reddit"
+msgstr ""
+
+#: inc/socials.php:38
+msgid "Share on Reddit"
+msgstr ""
+
+#: inc/socials.php:42
+msgid "Email"
+msgstr ""
+
+#: inc/socials.php:43
+msgid "Share by email"
+msgstr ""
+
+#: minimal-share-buttons.php:91
+msgid "Settings"
 msgstr ""
 
 #: blocks/index.js:9
