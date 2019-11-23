@@ -25,8 +25,8 @@
       var isSelected = props.isSelected;
 
       return [
-        isSelected && ( el( wp.editor.BlockControls, {key: "controls"},
-          el( wp.editor.BlockAlignmentToolbar, {
+        isSelected && ( el( wp.blockEditor.BlockControls, {key: "controls"},
+          el( wp.blockEditor.BlockAlignmentToolbar, {
             value: props.attributes.align,
             controls: ['left', 'center', 'right'],
             onChange: ( nextAlign ) => {
@@ -34,7 +34,7 @@
             }
           }),
         )),
-        el( wp.editor.InspectorControls, {key: "inspector"},
+        el( wp.blockEditor.InspectorControls, {key: "inspector"},
           el( wp.components.PanelBody, {
               title: __( 'Main Settings', 'minimal-share-buttons' ),
             },
@@ -48,7 +48,7 @@
             })
           ),
         ),
-        el( wp.components.ServerSideRender, {
+        el( wp.serverSideRender, {
           block: 'msb/share',
           attributes: props.attributes,
         }),
