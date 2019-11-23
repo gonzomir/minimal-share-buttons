@@ -233,3 +233,4 @@ function msb_display_buttons( $args = [], $echo = false ) {
 	}
 	return $output;
 }
+add_shortcode( 'msb_share', 'msb_display_buttons' );
