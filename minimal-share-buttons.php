@@ -110,22 +110,7 @@ add_action( 'widgets_init', 'minimal_share_buttons_widget' );
  * @return string
  */
 function msb_content_filter( $content ) {
-
-	$widget_args = [
-		'before_widget' => '<div class="msb-container">',
-		'after_widget'  => '</div>',
-		'before_title'  => '<h2>',
-		'after_title'   => '</h2>',
-	];
-	$instance_args = [
-		'title' => get_option( 'msb_content_title', __( 'Share this', 'minimal-share-buttons' ) ),
-	];
-	ob_start();
-	the_widget( 'minimal_share_buttons', $instance_args, $widget_args );
-	$output = ob_get_contents();
-	ob_end_clean();
-	$content .= $output;
-
+	$content .= msb_display_buttons();
 	return $content;
 }
 
@@ -206,4 +191,45 @@ function msb_icon( $icon, $echo = true ) {
 		echo $html; // WPCS: XSS OK.
 	}
 	return $html;
+}
+
+/**
+ * Display the sharing buttons widget.
+ *
+ * @param array   $args Array of arguments to pass to the widget.
+ * @param boolean $echo Echo the buttons markup if true.
+ * @return string The sharing widget markup.
+ */
+function msb_display_buttons( $args = [], $echo = false ) {
+	$widget_args = wp_parse_args(
+		$args,
+		[
+			'before_widget' => '<div class="msb-container">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h2>',
+			'after_title'   => '</h2>',
+		]
+	);
+
+	$instance_args = [];
+	if ( ! empty( $args['title'] ) ) {
+		$instance_args = [
+			'title' => $args['title'],
+		];
+	}
+	$instance_args = wp_parse_args(
+		$instance_args,
+		[
+			'title' => get_option( 'msb_content_title', __( 'Share this', 'minimal-share-buttons' ) ),
+		]
+	);
+
+	ob_start();
+	the_widget( 'minimal_share_buttons', $instance_args, $widget_args );
+	$output = ob_get_clean();
+
+	if ( $echo ) {
+		echo $output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	}
+	return $output;
 }

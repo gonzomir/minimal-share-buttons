@@ -84,19 +84,13 @@ function msb_render_block_share( $attributes ) {
 
 	$align = array_key_exists( 'align', $attributes ) ? $attributes['align'] : 'none';
 
-	$widget_args = [
+	$args = [
 		'before_widget' => '<div class="msb-container align' . $align . '">',
 		'after_widget'  => '</div>',
 		'before_title'  => '<h2>',
 		'after_title'   => '</h2>',
+		'title'         => $title,
 	];
-	$instance_args = [
-		'title' => $title,
-	];
-	ob_start();
-	the_widget( 'minimal_share_buttons', $instance_args, $widget_args );
-	$block_content = ob_get_contents();
-	ob_end_clean();
 
-	return preg_replace( '/[\n\r]+/i', ' ', $block_content );
+	return msb_display_buttons( $args );
 }
