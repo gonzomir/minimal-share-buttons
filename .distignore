@@ -1,0 +1,13 @@
+/.wordpress-org
+/.git
+/.github
+/node_modules
+
+.distignore
+.gitignore
+
+package.json
+package-lock.json
+Gruntfile.json
+phpcs.xml
+README.md
