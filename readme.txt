@@ -1,7 +1,7 @@
 === Minimal Share Buttons ===
 Tags: facebook, share buttons, social media, social sharing, twitter, linkedin
 Tested up to: 5.3
-Stable tag: 1.3.1
+Stable tag: 1.4
 Requires PHP: 5.6
 License: GPL3 or later
 License URI: https://www.gnu.org/licenses/gpl.html
@@ -30,13 +30,20 @@ Why choose Minimal Share Buttons before other similar plugins?
 
 == Usage ==
 
-There are three ways of displaying the share buttons on a post or page:
+There are five ways of displaying the share buttons on a post or page:
 
 1. Force them to display under the content of the post by checking the relevant checkboxes in the Display settings sections on the plugin settings screen.
 2. Add Share widget to the sidebar or another widget area.
 3. Use the Gutenberg block to add the share buttons whereever you want in the post content.
+4. Use the shortcode `[msb_share title="Share this"]` in the classic editor.
+5. Use the function `msb_display_buttons()` to render the widget in your theme templates.
 
 == Changelog ==
+
+= 1.4 =
+* Define a single function to render the sharing buttons.
+* Register a shortcode for rendering the widget in classic editor.
+* Update the block editor components, used in the msb/share block.
 
 = 1.3.1 =
 * Change default container element to `div`.
@@ -85,6 +92,20 @@ There are three ways of displaying the share buttons on a post or page:
 Initial release
 
 == Theme developers ==
+
+From version 1.4 you can more easily display the sharing widget in your templates using the function `msb_display_buttons()`. The function accepts two arguments - an array of options, pased to the widget, and a second boolean argument that tells the function to echo the resulting markup. Here's an example:
+
+```
+$args = [
+  'before_widget' => '<div class="msb-container">',
+  'after_widget'  => '</div>',
+  'before_title'  => '<h2>',
+  'after_title'   => '</h2>',
+  'title'         => __( 'Share this article', 'mytextdomain' ),
+];
+
+msb_display_buttons( $args, true );
+```
 
 If your theme uses SVG icons, combined into a SVG sprite, and your sprite has icons for Facebook, Twitter, Google+ and LinkedIn, there are two filters you can use to replace the icons, provided by the plugin, with yours. The results of the two filters are concatenated with a hash between them and passed through `esc_url` before output.
 
