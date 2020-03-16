@@ -20,6 +20,20 @@ document.addEventListener( 'DOMContentLoaded', function( event ) {
 			}
 		}
 
+		var shareButtons = document.querySelectorAll( 'button.msb-native-share' );
+		for ( var i = 0; i < shareButtons.length; i++ ) {
+			var button = shareButtons[i];
+			if ( navigator.share ) {
+				button.classList.add( 'native-share-available' );
+				button.addEventListener('click', function() {
+					navigator.share({
+						title: this.dataset.title,
+						url: this.dataset.url,
+					}).catch( ( error ) => console.log( 'Error sharing', error ) );
+				});
+			}
+		}
+
 	}
 
 });

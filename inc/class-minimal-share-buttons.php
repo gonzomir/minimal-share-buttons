@@ -77,6 +77,9 @@ class Minimal_Share_Buttons extends WP_Widget {
 				);
 				?>
 			<?php else : ?>
+				<button type="button" data-url="<?php echo esc_attr( get_permalink() ); ?>" data-title="<?php the_title_attribute(); ?>" class="minimal-share-button msb-native-share" aria-label="<?php esc_html_e( 'Share', 'msb' ); ?>">
+					<?php msb_icon( 'share-square', true ); ?>
+				</button>
 				<?php foreach ( $socials as $social => $attributes ) : ?>
 					<a href="<?php echo esc_url( sprintf( $attributes['share_url'], rawurlencode( get_permalink() ), rawurlencode( the_title_attribute( 'echo=0' ) ) ) ); ?>" target="_blank" class="minimal-share-button" aria-label="<?php echo esc_html( $attributes['button_label'] ); ?>" rel="noopener"><?php msb_icon( $social . '-square', true ); ?></a>
 				<?php endforeach; ?>

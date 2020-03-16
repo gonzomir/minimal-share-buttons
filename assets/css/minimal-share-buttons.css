@@ -18,15 +18,28 @@
   margin: 0;
 }
 
+:root button.minimal-share-button,
 :root a.minimal-share-button:link,
 :root a.minimal-share-button:hover {
   position: relative;
   display: inline-block;
   border: none;
-  background-image: none;
+  background: none;
   text-decoration: none;
   box-shadow: none;
   line-height: 1;
+  vertical-align: middle;
+}
+
+:root button.minimal-share-button {
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  line-height: 1;
+  text-transform: none;
 }
 
 :root a.minimal-share-button::after,
@@ -40,22 +53,33 @@
   fill: currentColor;
 }
 
+button.minimal-share-button:focus,
 a.minimal-share-button:focus {
   outline: 0;
 }
 
-a.minimal-share-button:focus svg {
+.minimal-share-button:focus svg {
   outline: 1px dotted currentcolor;
 }
 
-a.minimal-share-button:hover::after,
-a.minimal-share-button:focus::after {
+:root button.minimal-share-button:hover::after,
+:root button.minimal-share-button:focus::after,
+:root a.minimal-share-button:hover::after,
+:root a.minimal-share-button:focus::after {
   content: attr(aria-label);
-  display: inline-block;
+  display: block;
   position: absolute;
   top: 100%;
   left: 0;
   padding: .5em;
   background-color: black;
   color: #fff;
+}
+/*
+:root button.msb-native-share {
+	display: none;
+}
+*/
+:root button.native-share-available {
+	display: inline-block;
 }
