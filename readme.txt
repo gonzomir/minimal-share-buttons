@@ -1,7 +1,7 @@
 === Minimal Share Buttons ===
 Tags: facebook, share buttons, social media, social sharing, twitter, linkedin
 Tested up to: 5.3
-Stable tag: 1.4
+Stable tag: 1.5
 Requires PHP: 5.6
 License: GPL3 or later
 License URI: https://www.gnu.org/licenses/gpl.html
@@ -18,6 +18,7 @@ Why choose Minimal Share Buttons before other similar plugins?
 * Minimal and elegant look that blends with your theme (tested with all latest default WordPress themes as well as with some other popular themes).
 * Minimal impact on your site's performance - the plugin loads only a small SVG file with the icons, less than 1k CSS and 3.5к unminified and uncompressed JavaScript - most of it to make SVG icons work in old browsers.
 * Doesn't spy on your users - the plugin doesn't load any thitd-party scripts that record your user's activity on your site, doesn't set or read any cookies.
+* Sharing through the native share dialog on devices that support it.
 * GDPR-hasle-free - since the plugin doesn't leak personal information to third parties, this makes it easier for website owners to comply with the European privacy regulations.
 * Accessibility - the share links have labels, read by screen readers, and visible for keyboard users.
 * Gutenberg and WordPress 5.0 ready - the plugin provides block that displays the share buttons so that authors can place them wherever they want in the post content.
@@ -39,6 +40,9 @@ There are five ways of displaying the share buttons on a post or page:
 5. Use the function `msb_display_buttons()` to render the widget in your theme templates.
 
 == Changelog ==
+
+= 1.5 =
+* Add native share option for devices that support the `navigator.share` API.
 
 = 1.4 =
 * Define a single function to render the sharing buttons.
