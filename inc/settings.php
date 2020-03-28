@@ -70,6 +70,7 @@ class MsbSettings {
 		$socials = get_option(
 			'msb_socials',
 			[
+				'native' => false,
 				'facebook' => false,
 				'twitter' => false,
 				'google-plus' => false,
@@ -193,18 +194,20 @@ class MsbSettings {
 	 * @return void
 	 */
 	public static function socials_fieldset( $args ) {
-
 		?>
 		<fieldset>
-			<?php foreach ( msb_get_socials() as $social => $attributes ) : ?>
 			<p>
-				<input type="checkbox" id="msb_socials_<?php echo esc_attr( $social ); ?>" name="msb_socials[<?php echo esc_attr( $social ); ?>]" value="true" <?php echo ( isset( $args['value'][ $social ] ) && $args['value'][ $social ] ) ? 'checked' : ''; ?> />
-				<label for="msb_socials_<?php echo esc_attr( $social ); ?>"><?php echo esc_html( $attributes['field_label'] ); ?></label>
+				<input type="checkbox" id="msb_socials_native" name="msb_socials[native]" value="true" <?php echo ( isset( $args['value']['native'] ) && $args['value']['native'] ) ? 'checked' : ''; ?> />
+				<label for="msb_socials_native"><?php esc_html_e( 'Native share dialog', 'minimal-share-buttons' ); ?></label>
 			</p>
+			<?php foreach ( msb_get_socials() as $social => $attributes ) : ?>
+				<p>
+					<input type="checkbox" id="msb_socials_<?php echo esc_attr( $social ); ?>" name="msb_socials[<?php echo esc_attr( $social ); ?>]" value="true" <?php echo ( isset( $args['value'][ $social ] ) && $args['value'][ $social ] ) ? 'checked' : ''; ?> />
+					<label for="msb_socials_<?php echo esc_attr( $social ); ?>"><?php echo esc_html( $attributes['field_label'] ); ?></label>
+				</p>
 			<?php endforeach; ?>
 		</fieldset>
 		<?php
-
 	}
 
 	/**
