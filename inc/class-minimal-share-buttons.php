@@ -69,26 +69,58 @@ class Minimal_Share_Buttons extends WP_Widget {
 
 		?>
 		<p>
-			<?php if ( empty( $socials ) ) : ?>
-				<?php
-				printf(
-					/* translators: %s is settings page address */
-					__( 'To configure sharing options <a href="%s">go to the settings page</a>.', 'minila-share-buttons' ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-					esc_url( admin_url( 'options-general.php?page=minimal-share-buttons' ) )
-				);
-				?>
-			<?php else : ?>
+			<?php
+			if ( empty( $socials ) ) {
+				if ( current_user_can( 'manage_options' ) ) {
+					printf(
+						/* translators: %s is settings page address */
+						__( 'To configure sharing options <a href="%s">go to the settings page</a>.', 'minila-share-buttons' ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+						esc_url( admin_url( 'options-general.php?page=minimal-share-buttons' ) )
+					);
+				}
+			} else {
+				$share_title = html_entity_decode ( get_the_title() );
 
-				<?php if ( $options['native'] ) : ?>
-					<button type="button" data-url="<?php echo esc_attr( get_permalink() ); ?>" data-title="<?php the_title_attribute(); ?>" class="minimal-share-button msb-native-share" aria-label="<?php esc_html_e( 'Share', 'msb' ); ?>">
-						<?php msb_icon( 'share-square', true ); ?>
-					</button>
-				<?php endif; ?>
+				if ( $options['native'] ) {
+					$classes = [
+						'minimal-share-button',
+						'msb-native-share',
+					];
+					$classes = apply_filters( 'msb_button_classes', $classes, 'native' );
 
-				<?php foreach ( $socials as $social => $attributes ) : ?>
-					<a href="<?php echo esc_url( sprintf( $attributes['share_url'], rawurlencode( get_permalink() ), rawurlencode( the_title_attribute( 'echo=0' ) ) ) ); ?>" target="_blank" class="minimal-share-button" aria-label="<?php echo esc_html( $attributes['button_label'] ); ?>" rel="noopener"><?php msb_icon( $social . '-square', true ); ?></a>
-				<?php endforeach; ?>
-			<?php endif; ?>
+					printf(
+						'<button type="button" data-url="%1$s" data-title="%2$s" class="%3$s" aria-label="%4%s">%5$s</button>',
+						esc_attr( get_permalink() ),
+						esc_attr( $share_title ),
+						esc_attr( join( ' ', $classes ) ),
+						esc_attr( 'Share', 'msb' ),
+						msb_icon( 'share-square', false )
+					);
+				}
+
+				foreach ( $socials as $social => $attributes ) {
+					$share_link = sprintf(
+						$attributes['share_url'],
+						rawurlencode( get_permalink() ),
+						rawurlencode( $share_title )
+					);
+
+					$classes = [
+						'minimal-share-button',
+						'msb-' . $social,
+					];
+					$classes = apply_filters( 'msb_button_classes', $classes, $social );
+
+					printf(
+						'<a href="%1$s" target="_blank" class="%2$s" aria-label="%3$s" rel="noopener">%4$s</a>',
+						esc_url( $share_link ),
+						esc_attr( join( ' ', $classes ) ),
+						esc_attr( $attributes['button_label'] ),
+						msb_icon( $social . '-square', false )
+					);
+				}
+			}
+			?>
 		</p>
 		<?php
 
