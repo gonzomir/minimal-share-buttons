@@ -81,7 +81,7 @@ class Minimal_Share_Buttons extends WP_Widget {
 			} else {
 				$share_title = html_entity_decode ( get_the_title() );
 
-				if ( $options['native'] ) {
+				if ( ! empty( $options['native'] ) ) {
 					$classes = [
 						'minimal-share-button',
 						'msb-native-share',
