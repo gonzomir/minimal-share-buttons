@@ -75,11 +75,11 @@ a.minimal-share-button:focus {
   background-color: black;
   color: #fff;
 }
-/*
+
 :root button.msb-native-share {
 	display: none;
 }
-*/
+
 :root button.native-share-available {
 	display: inline-block;
 }
