@@ -1,7 +1,7 @@
 === Minimal Share Buttons ===
 Tags: facebook, share buttons, social media, social sharing, twitter, linkedin
 Tested up to: 5.3
-Stable tag: 1.5
+Stable tag: 1.6
 Requires PHP: 5.6
 License: GPL3 or later
 License URI: https://www.gnu.org/licenses/gpl.html
@@ -40,6 +40,11 @@ There are five ways of displaying the share buttons on a post or page:
 5. Use the function `msb_display_buttons()` to render the widget in your theme templates.
 
 == Changelog ==
+
+= 1.6 =
+* Add additional class with the social network name to the buttons and allow filtering of the classes.
+* Fix native share button appearing always.
+* Fix undefined index notice when the native share option is unchecked.
 
 = 1.5 =
 * Add native share option for devices that support the `navigator.share` API.
@@ -97,7 +102,7 @@ Initial release
 
 == Theme developers ==
 
-From version 1.4 you can more easily display the sharing widget in your templates using the function `msb_display_buttons()`. The function accepts two arguments - an array of options, pased to the widget, and a second boolean argument that tells the function to echo the resulting markup. Here's an example:
+From version 1.4 you can more easily display the sharing widget in your templates using the function `msb_display_buttons()`. The function accepts two arguments - an array of options, passed to the widget, and a second boolean argument that tells the function to echo the resulting markup. Here's an example:
 
   $args = [
     'before_widget' => '&lt;div class="msb-container">',
@@ -137,6 +142,9 @@ The filter is applied to the default list of social networks and allows adding o
     }
     add_filter( 'msb_socials', 'my_add_xing' );
 
+===msb_button_classes===
+
+This filter allows changing the classes of the individual buttons. Two parameters are apssed to the filter functions: the array with classes and the social network / button slug.
 
 == Credits ==
 
