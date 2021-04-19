@@ -74,6 +74,8 @@ a.minimal-share-button:focus {
   padding: .5em;
   background-color: black;
   color: #fff;
+  word-wrap: normal;
+  word-break: normal;
 }
 
 :root button.msb-native-share {
