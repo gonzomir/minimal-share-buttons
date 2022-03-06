@@ -31,7 +31,7 @@ function msb_get_socials() {
 		'pinterest' => [
 			'field_label' => __( 'Pinterest', 'minimal-share-buttons' ),
 			'button_label' => __( 'Share on Pinterest', 'minimal-share-buttons' ),
-			'share_url' => 'https://pinterest.com/pin/create/button/?url=%1&s&description=%2$s',
+			'share_url' => 'https://pinterest.com/pin/create/button/?url=%1$s&description=%2$s',
 		],
 		'reddit' => [
 			'field_label' => __( 'Reddit', 'minimal-share-buttons' ),
