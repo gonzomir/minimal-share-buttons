@@ -1,7 +1,7 @@
 === Minimal Share Buttons ===
 Tags: facebook, share buttons, social media, social sharing, twitter, linkedin
-Tested up to: 5.7
-Stable tag: 1.6.1
+Tested up to: 5.9.1
+Stable tag: 1.6.2
 Requires PHP: 5.6
 License: GPL3 or later
 License URI: https://www.gnu.org/licenses/gpl.html
@@ -40,6 +40,9 @@ There are five ways of displaying the share buttons on a post or page:
 5. Use the function `msb_display_buttons()` to render the widget in your theme templates.
 
 == Changelog ==
+
+= 1.6.1 =
+* Fix typo in Pinterest share URL, fixes fatal error with PHP 8.1.
 
 = 1.6.1 =
 * Fix button tooltips in TwentyTwenty, reset `word-wrap` and `word-break` to `normal`.
