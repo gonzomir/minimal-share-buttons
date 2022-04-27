@@ -4,7 +4,7 @@
   "author": "Milen Petrinski - Gonzo <gonzo@greatgonzo.net>",
   "license": "GPLv3",
   "devDependencies": {
-    "grunt": "^1.0.3",
+    "grunt": "^1.5.2",
     "grunt-contrib-uglify": "^4.0.0",
     "grunt-svgstore": "^2.0.0"
   },
