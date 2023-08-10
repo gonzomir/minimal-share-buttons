@@ -41,7 +41,7 @@ There are five ways of displaying the share buttons on a post or page:
 
 == Changelog ==
 
-= 1.6.1 =
+= 1.6.2 =
 * Fix typo in Pinterest share URL, fixes fatal error with PHP 8.1.
 
 = 1.6.1 =

@@ -81,8 +81,8 @@ add_action( 'wp_enqueue_scripts', 'msb_styles' );
 /**
  * Add link to settings in plugins list item actions.
  *
- * @param string $links Action links in plugins list table.
- * @return string Modified action links.
+ * @param array $links Action links in plugins list table.
+ * @return array Modified action links.
  */
 function msb_add_settings_link( $links ) {
 		$settings_link = sprintf(
