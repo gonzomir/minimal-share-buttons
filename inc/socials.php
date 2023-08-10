@@ -18,6 +18,11 @@ function msb_get_socials() {
 			'button_label' => __( 'Share on Twitter', 'minimal-share-buttons' ),
 			'share_url' => 'https://twitter.com/intent/tweet?url=%1$s&text=%2$s',
 		],
+		'mastodon' => [
+			'field_label' => __( 'Mastodon', 'minimal-share-buttons' ),
+			'button_label' => __( 'Share on Mastodon', 'minimal-share-buttons' ),
+			'share_url' => 'https://toot.kytta.dev/?text=%2$s%%20-%%20%1$s',
+		],
 		'google-plus' => [
 			'field_label' => __( 'Google Plus', 'minimal-share-buttons' ),
 			'button_label' => __( 'Share on Google Plus', 'minimal-share-buttons' ),
