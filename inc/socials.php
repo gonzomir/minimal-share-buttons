@@ -31,7 +31,7 @@ function msb_get_socials() {
 		'linkedin' => [
 			'field_label' => __( 'LinkedIn', 'minimal-share-buttons' ),
 			'button_label' => __( 'Share on LinkedIn', 'minimal-share-buttons' ),
-			'share_url' => 'https://www.linkedin.com/shareArticle?mini=true&url=%1$s&title=%2$s',
+			'share_url' => 'https://www.linkedin.com/sharing/share-offsite/?url=%1$s&title=%2$s',
 		],
 		'pinterest' => [
 			'field_label' => __( 'Pinterest', 'minimal-share-buttons' ),

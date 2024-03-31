@@ -43,6 +43,7 @@ There are five ways of displaying the share buttons on a post or page:
 
 = 1.7.0 =
 * Add Mastodon (thanks @colinleroy) and Threads.
+* Update LinkedIn sharing URL.
 * Update all icons, use SVGs from FontAwesome.
 
 = 1.6.2 =
