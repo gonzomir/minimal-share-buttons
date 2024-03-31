@@ -6,7 +6,7 @@ Plugin URI: https://github.com/gonzomir/minimal-share-buttons
 Description: A social share plugin that doesn't spy on users and doesn't slow down you site.
 Author: Milen Petrinski - Gonzo
 Author URI: https://greatgonzo.net/
-Version: 1.6.2
+Version: 1.7.0
 License: GPL3
 License URI: https://www.gnu.org/licenses/gpl.html
 Text Domain: minimal-share-buttons
@@ -81,8 +81,8 @@ add_action( 'wp_enqueue_scripts', 'msb_styles' );
 /**
  * Add link to settings in plugins list item actions.
  *
- * @param string $links Action links in plugins list table.
- * @return string Modified action links.
+ * @param array $links Action links in plugins list table.
+ * @return array Modified action links.
  */
 function msb_add_settings_link( $links ) {
 		$settings_link = sprintf(

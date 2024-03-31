@@ -29,7 +29,7 @@ document.addEventListener( 'DOMContentLoaded', function( event ) {
 					navigator.share({
 						title: this.dataset.title,
 						url: this.dataset.url,
-					}).catch( ( error ) => console.log( 'Error sharing', error ) );
+					}).catch( function( error ) { console.log( 'Error sharing', error ); } );
 				});
 			}
 		}

@@ -14,8 +14,8 @@ function msb_get_socials() {
 			'share_url' => 'https://facebook.com/sharer.php?u=%1$s&t=%2$s',
 		],
 		'twitter' => [
-			'field_label' => __( 'Twitter', 'minimal-share-buttons' ),
-			'button_label' => __( 'Share on Twitter', 'minimal-share-buttons' ),
+			'field_label' => __( 'X (Twitter)', 'minimal-share-buttons' ),
+			'button_label' => __( 'Share on X (Twitter)', 'minimal-share-buttons' ),
 			'share_url' => 'https://twitter.com/intent/tweet?url=%1$s&text=%2$s',
 		],
 		'mastodon' => [
@@ -23,15 +23,15 @@ function msb_get_socials() {
 			'button_label' => __( 'Share on Mastodon', 'minimal-share-buttons' ),
 			'share_url' => 'https://toot.kytta.dev/?text=%2$s%%20-%%20%1$s',
 		],
-		'google-plus' => [
-			'field_label' => __( 'Google Plus', 'minimal-share-buttons' ),
-			'button_label' => __( 'Share on Google Plus', 'minimal-share-buttons' ),
-			'share_url' => 'https://plus.google.com/share?url=%1$s&title=%2$s',
+		'threads' => [
+			'field_label' => __( 'Threads', 'minimal-share-buttons' ),
+			'button_label' => __( 'Share on Threads', 'minimal-share-buttons' ),
+			'share_url' => 'https://www.threads.net/intent/post?text=%2$s+%1$s',
 		],
 		'linkedin' => [
 			'field_label' => __( 'LinkedIn', 'minimal-share-buttons' ),
 			'button_label' => __( 'Share on LinkedIn', 'minimal-share-buttons' ),
-			'share_url' => 'https://www.linkedin.com/shareArticle?mini=true&url=%1$s&title=%2$s',
+			'share_url' => 'https://www.linkedin.com/sharing/share-offsite/?url=%1$s&title=%2$s',
 		],
 		'pinterest' => [
 			'field_label' => __( 'Pinterest', 'minimal-share-buttons' ),
