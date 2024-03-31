@@ -159,6 +159,6 @@ This filter allows changing the classes of the individual buttons. Two parameter
 
 == Credits ==
 
-* SVG Icons from (FontAwesome)[https://fontawesome.com/], (Creative Commons CC BY 4.0)[https://creativecommons.org/licenses/by/4.0/], MIT licence
-* Banner image by (heinzremyschindler on pixbay)[https://pixabay.com/en/share-play-words-2482016/], (Creative Commons CC0)[https://creativecommons.org/publicdomain/zero/1.0/deed.en]
-* Plugin icon based on (work by Nathan Diesel from the Noun Project)[https://thenounproject.com/term/share/107273/], (Creative Commons CC-BY)[http://creativecommons.org/licenses/by/3.0/us/]
+* SVG Icons from [FontAwesome](https://fontawesome.com/), [Creative Commons CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), MIT licence
+* Banner image by [heinzremyschindler on pixbay](https://pixabay.com/en/share-play-words-2482016/), [Creative Commons CC0](https://creativecommons.org/publicdomain/zero/1.0/deed.en)
+* Plugin icon based on [work by Nathan Diesel from the Noun Project](https://thenounproject.com/term/share/107273/), [Creative Commons CC-BY](http://creativecommons.org/licenses/by/3.0/us/)
