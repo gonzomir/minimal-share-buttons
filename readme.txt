@@ -115,14 +115,14 @@ Initial release
 
 From version 1.4 you can more easily display the sharing widget in your templates using the function `msb_display_buttons()`. The function accepts two arguments - an array of options, passed to the widget, and a second boolean argument that tells the function to echo the resulting markup. Here's an example:
 
-  $args = [
-    'before_widget' => '&lt;div class="msb-container">',
-    'after_widget'  => '&lt;/div>',
-    'before_title'  => '&lt;h2>',
-    'after_title'   => '&lt;/h2>',
-    'title'         => __( 'Share this article', 'mytextdomain' ),
-  ];
-  msb_display_buttons( $args, true );
+    $args = [
+      'before_widget' => '&lt;div class="msb-container">',
+      'after_widget'  => '&lt;/div>',
+      'before_title'  => '&lt;h2>',
+      'after_title'   => '&lt;/h2>',
+      'title'         => __( 'Share this article', 'mytextdomain' ),
+    ];
+    msb_display_buttons( $args, true );
 
 If your theme uses SVG icons, combined into a SVG sprite, and your sprite has icons for Facebook, Twitter, Google+ and LinkedIn, there are two filters you can use to replace the icons, provided by the plugin, with yours. The results of the two filters are concatenated with a hash between them and passed through `esc_url` before output.
 
