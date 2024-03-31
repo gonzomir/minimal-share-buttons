@@ -1,17 +1,17 @@
-# Copyright (C) 2019 Milen Petrinski - Gonzo
-# This file is distributed under the same license as the Minimal Share Buttons plugin.
+# Copyright (C) 2024 Milen Petrinski - Gonzo
+# This file is distributed under the GPL3.
 msgid ""
 msgstr ""
-"Project-Id-Version: Minimal Share Buttons 1.4\n"
+"Project-Id-Version: Minimal Share Buttons 1.7.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/minimal-share-buttons\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-23T13:01:32+02:00\n"
+"POT-Creation-Date: 2024-03-31T09:17:49+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.4.0\n"
+"X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: minimal-share-buttons\n"
 
 #. Plugin Name of the plugin
@@ -37,13 +37,13 @@ msgstr ""
 #: blocks/index.php:51
 #: blocks/index.php:79
 #: inc/class-minimal-share-buttons.php:14
-#: inc/class-minimal-share-buttons.php:117
+#: inc/class-minimal-share-buttons.php:157
 #: blocks/index.js:8
 #: blocks/index.js:20
 msgid "Share"
 msgstr ""
 
-#: inc/class-minimal-share-buttons.php:123
+#: inc/class-minimal-share-buttons.php:163
 msgid "Title:"
 msgstr ""
 
@@ -51,41 +51,45 @@ msgstr ""
 msgid "Social networks"
 msgstr ""
 
-#: inc/settings.php:85
+#: inc/settings.php:86
 msgid "Select social networks"
 msgstr ""
 
-#: inc/settings.php:99
+#: inc/settings.php:100
 msgid "Display settings"
 msgstr ""
 
-#: inc/settings.php:114
+#: inc/settings.php:115
 msgid "Show buttons under content"
 msgstr ""
 
-#: inc/settings.php:125
+#: inc/settings.php:126
 msgid "Title of the section under content"
 msgstr ""
 
-#: inc/settings.php:131
+#: inc/settings.php:132
 #: minimal-share-buttons.php:223
 msgid "Share this"
 msgstr ""
 
-#: inc/settings.php:145
+#: inc/settings.php:146
 msgid "Select the social networks you wish your content to be shared on."
 msgstr ""
 
-#: inc/settings.php:157
+#: inc/settings.php:158
 msgid "Settings that control the appearance of the buttons."
 msgstr ""
 
-#: inc/settings.php:257
-#: inc/settings.php:258
+#: inc/settings.php:201
+msgid "Native share dialog"
+msgstr ""
+
+#: inc/settings.php:260
+#: inc/settings.php:261
 msgid "Share Options"
 msgstr ""
 
-#: inc/settings.php:292
+#: inc/settings.php:295
 msgid "Save Settings"
 msgstr ""
 
@@ -98,50 +102,58 @@ msgid "Share on Facebook"
 msgstr ""
 
 #: inc/socials.php:17
-msgid "Twitter"
+msgid "X (Twitter)"
 msgstr ""
 
 #: inc/socials.php:18
-msgid "Share on Twitter"
+msgid "Share on X (Twitter)"
 msgstr ""
 
 #: inc/socials.php:22
-msgid "Google Plus"
+msgid "Mastodon"
 msgstr ""
 
 #: inc/socials.php:23
-msgid "Share on Google Plus"
+msgid "Share on Mastodon"
 msgstr ""
 
 #: inc/socials.php:27
-msgid "LinkedIn"
+msgid "Threads"
 msgstr ""
 
 #: inc/socials.php:28
-msgid "Share on LinkedIn"
+msgid "Share on Threads"
 msgstr ""
 
 #: inc/socials.php:32
-msgid "Pinterest"
+msgid "LinkedIn"
 msgstr ""
 
 #: inc/socials.php:33
-msgid "Share on Pinterest"
+msgid "Share on LinkedIn"
 msgstr ""
 
 #: inc/socials.php:37
-msgid "Reddit"
+msgid "Pinterest"
 msgstr ""
 
 #: inc/socials.php:38
-msgid "Share on Reddit"
+msgid "Share on Pinterest"
 msgstr ""
 
 #: inc/socials.php:42
-msgid "Email"
+msgid "Reddit"
 msgstr ""
 
 #: inc/socials.php:43
+msgid "Share on Reddit"
+msgstr ""
+
+#: inc/socials.php:47
+msgid "Email"
+msgstr ""
+
+#: inc/socials.php:48
 msgid "Share by email"
 msgstr ""
 
