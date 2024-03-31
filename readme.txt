@@ -1,5 +1,5 @@
 === Minimal Share Buttons ===
-Tags: facebook, share buttons, social media, social sharing, twitter, linkedin
+Tags: facebook, share buttons, social media, social sharing, X
 Tested up to: 6.5
 Stable tag: 1.7.0
 Requires PHP: 5.6
