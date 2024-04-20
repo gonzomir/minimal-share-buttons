@@ -93,7 +93,7 @@ class Minimal_Share_Buttons extends WP_Widget {
 						esc_attr( get_permalink() ),
 						esc_attr( $share_title ),
 						esc_attr( join( ' ', $classes ) ),
-						esc_attr__( 'Share', 'msb' ),
+						esc_attr__( 'Share', 'minimal-share-buttons' ),
 						msb_icon( 'share-square', false )
 					);
 				}
