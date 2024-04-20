@@ -1,7 +1,7 @@
 === Minimal Share Buttons ===
 Tags: facebook, share buttons, social media, social sharing, X
 Tested up to: 6.5
-Stable tag: 1.7.0
+Stable tag: 1.7.1
 Requires PHP: 5.6
 License: GPL3 or later
 License URI: https://www.gnu.org/licenses/gpl.html
@@ -40,6 +40,10 @@ There are five ways of displaying the share buttons on a post or page:
 5. Use the function `msb_display_buttons()` to render the widget in your theme templates.
 
 == Changelog ==
+
+= 1.7.1 =
+* Fix typo in native share button sprintf format string, fixes the `aria-label` of the button.
+* Update native share button icon.
 
 = 1.7.0 =
 * Add Mastodon (thanks @colinleroy) and Threads.
