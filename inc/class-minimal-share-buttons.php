@@ -89,7 +89,7 @@ class Minimal_Share_Buttons extends WP_Widget {
 					$classes = apply_filters( 'msb_button_classes', $classes, 'native' );
 
 					printf(
-						'<button type="button" data-url="%1$s" data-title="%2$s" class="%3$s" aria-label="%4%s">%5$s</button>',
+						'<button type="button" data-url="%1$s" data-title="%2$s" class="%3$s" aria-label="%4$s">%5$s</button>',
 						esc_attr( get_permalink() ),
 						esc_attr( $share_title ),
 						esc_attr( join( ' ', $classes ) ),
