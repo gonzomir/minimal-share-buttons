@@ -82,10 +82,14 @@ function msb_render_block_share( $attributes ) {
 		$title = trim( $attributes['title'] );
 	}
 
-	$align = array_key_exists( 'align', $attributes ) ? $attributes['align'] : 'none';
+	$align = $attributes['align'] ?? 'none';
+	$container_classes = [
+		'msb-container',
+		'align' . $align,
+	];
 
 	$args = [
-		'before_widget' => '<div class="msb-container align' . $align . '">',
+		'before_widget' => sprintf( '<div class="%s">', esc_attr( join( ' ', $container_classes ) ) ),
 		'after_widget'  => '</div>',
 		'before_title'  => '<h2>',
 		'after_title'   => '</h2>',
