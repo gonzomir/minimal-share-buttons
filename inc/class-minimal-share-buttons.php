@@ -62,9 +62,9 @@ class Minimal_Share_Buttons extends WP_Widget {
 			$title = '';
 		}
 
-		echo $args['before_widget']; // WPCS: XSS OK.
+		echo $args['before_widget']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		if ( $title ) {
-			echo $args['before_title'] . $title . $args['after_title']; // WPCS: XSS OK.
+			echo $args['before_title'] . $title . $args['after_title']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 
 		?>

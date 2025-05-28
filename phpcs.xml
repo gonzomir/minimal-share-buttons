@@ -4,10 +4,17 @@
   <file>.</file>
   <exclude-pattern>vendor/*</exclude-pattern>
   <arg name="extensions" value="php"/>
-  <rule ref="WordPress">
-    <exclude name="WordPress.PHP.YodaConditions" />
-    <exclude name="WordPress.Arrays.MultipleStatementAlignment" />
-    <exclude name="Generic.Formatting.MultipleStatementAlignment" />
-    <exclude name="Squiz.Commenting.FileComment" />
-  </rule>
+	<rule ref="WordPress">
+		<exclude name="WordPress.PHP.YodaConditions" />
+		<exclude name="WordPress.Arrays.MultipleStatementAlignment" />
+		<exclude name="WordPress.WP.EnqueuedResourceParameters.NotInFooter" />
+		<exclude name="WordPress.PHP.DisallowShortTernary.Found" />
+		<exclude name="WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents" />
+		<exclude name="Generic.Arrays.DisallowShortArraySyntax.Found" />
+		<exclude name="Generic.Formatting.MultipleStatementAlignment" />
+		<exclude name="Squiz.Commenting.FileComment" />
+		<exclude name="Universal.Arrays.DisallowShortArraySyntax.Found" />
+		<exclude name="Universal.Operators.DisallowShortTernary.Found" />
+	</rule>
+	<rule ref="Generic.Arrays.DisallowLongArraySyntax" />
 </ruleset>
