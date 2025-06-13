@@ -187,6 +187,7 @@ function msb_icon( $icon, $echo = true ) {
 		'<svg xmlns="http://www.w3.org/2000/svg" class="icon" aria-hidden="true"><use xlink:href="%1$s"></use></svg>',
 		esc_url( $sprite_url . '#' . $icon )
 	);
+	$html = apply_filters( 'msb_icon', $html, $icon );
 	if ( $echo ) {
 		echo $html; // WPCS: XSS OK.
 	}

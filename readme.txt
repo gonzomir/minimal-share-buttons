@@ -149,6 +149,10 @@ The filter is applied to the URL of the sprite image and the filter function sho
 
 The filter is applied to the icon name before concatenating it to the sprite URL. It should return the ID of the icon symbol in the sprite.
 
+===msb_icon===
+
+The filter allows to change the whole icons markup, It receives the icon markup and the icon name as parameters.
+
 ===msb_socials===
 
 The filter is applied to the default list of social networks and allows adding or removing socials networks. The array of social networks is associative array, the key is used for the option name on settings page and for the icon ID, and the value is associative array with three elements - `field_label` (the label of the field in settings), `button_label` (the label of the button for screenreader users), and `share_url` (the URL for sharing links). The `share_url` is passed through `sprintf` with two params - the URL of the current page and the title of the page. Example:
